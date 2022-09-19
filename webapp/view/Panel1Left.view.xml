@@ -4,10 +4,103 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core">
-    <FlexBox
-        fitContainer="true"
-        alignItems="Start"
-        justifyContent="Center">
-        <Text text="sads"/>
-    </FlexBox>
+    <VBox>
+        <FlexBox
+            fitContainer="true"
+            alignItems="Start"
+            justifyContent="Center">
+            <ComboBox
+                width="90%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                selectedKey="-"
+                items="{
+                    path: 'orderDetails>/OrderTypes',
+                    sorter: { path: 'text' }
+                }">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+                <core:Item key="{orderDetails>key}" text="{orderDetails>text}"/>
+            </ComboBox>
+            <ComboBox
+                width="90%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                selectedKey="Cs"
+                items="{
+                    path: 'orderDetails>/RecipientTypes',
+                    sorter: { path: 'text' }
+                }">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+                <core:Item key="{orderDetails>key}" text="{orderDetails>text}"/>
+            </ComboBox>
+            <DatePicker
+                id="reqDeliveryDate"
+                displayFormat="long"
+                placeholder="{i18n>RequestedDeliveryDate}"
+                tooltip="{i18n>RequestedDeliveryDate}"
+                change="handleChange"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"/>
+        </FlexBox>
+        <FlexBox
+            fitContainer="true"
+            alignItems="Start"
+            justifyContent="Center">
+            <Input
+                width="90%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>CommercialOrg}"
+                valueLiveUpdate="true">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+            </Input>
+            <Input
+                width="90%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>DistributionChannel}"
+                valueLiveUpdate="true">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+            </Input>
+            <Input
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>WeeklyCommodity}"
+                valueLiveUpdate="true">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+            </Input>
+        </FlexBox>
+        <FlexBox
+            fitContainer="true"
+            alignItems="Start"
+            justifyContent="Center">
+            <Input
+                width="90%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>CustomerOrderReference}"
+                valueLiveUpdate="true">
+                <layoutData>
+                    <FlexItemData growFactor="1"/>
+                </layoutData>
+            </Input>
+            <ComboBox
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                selectedKey="Tp"
+                items="{
+                    path: 'orderDetails>/PaymentPolicies',
+                    sorter: { path: 'text' }
+                }">
+                <layoutData>
+                    <FlexItemData growFactor="2"/>
+                </layoutData>
+                <core:Item key="{orderDetails>key}" text="{orderDetails>text}"/>
+            </ComboBox>
+        </FlexBox>
+    </VBox>
 </mvc:View>

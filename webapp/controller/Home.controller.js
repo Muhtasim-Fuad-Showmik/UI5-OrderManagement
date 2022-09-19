@@ -5,7 +5,6 @@ sap.ui.define([
 
     return Controller.extend("ordermanagement.controller.Home", {
         onInit: function () {
-
         }
     });
 });

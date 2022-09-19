@@ -1,9 +1,31 @@
 <mvc:View
     controllerName="ordermanagement.controller.Home"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
-    <!-- Panel 1 -->
-    <VBox>
-        <mvc:XMLView viewName="ordermanagement.view.Panel1"/>
-    </VBox>
+    xmlns:mvc="sap.ui.core.mvc"
+    busyIndicatorDelay="0">
+    <Page
+        id="homePage"
+        title="{i18n>title}"
+        class="sapUiResponsiveContentPadding">
+        <content>
+            <IconTabBar
+                id="iconTabBar"
+                headerBackgroundDesign="Transparent"
+                class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter id="tabHeader" text="{i18n>Header}" key="Header"/>
+                    <IconTabFilter id="tabLocations" text="{i18n>Locations}" key="Locations"/>
+                    <IconTabFilter id="tabPromoVistex" text="{i18n>PromoVistex}" key="PromoVistex"/>
+                    <IconTabFilter id="tabTestedPricing" text="{i18n>TestedPricing}" key="TestedPricing"/>
+                    <IconTabFilter id="tabPartner" text="{i18n>Partner}" key="Partner"/>
+                    <IconTabFilter id="tabNote" text="{i18n>Note}" key="Note"/>
+                </items>
+            </IconTabBar>
+
+            <!-- Panel 1 -->
+            <VBox>
+                <mvc:XMLView viewName="ordermanagement.view.Panel1"/>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>

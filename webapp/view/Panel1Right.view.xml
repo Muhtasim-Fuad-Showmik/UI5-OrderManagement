@@ -16,18 +16,18 @@
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="Ce"
                     items="{
-                        path: '/Consignment/PersonTypes',
+                        path: 'consignment>/ConsignmentPersonTypes',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
                 <Input
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>ConsigneeOfGoodsName}"
+                    placeholder="{i18n>ConsigneeOfGoodsName}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="3"/>
@@ -37,7 +37,7 @@
             <Input
                 width="100%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                value="{i18n>ConsignmentVia}"
+                placeholder="{i18n>ConsignmentVia}"
                 valueLiveUpdate="true"/>
             <FlexBox
                 width="100%"
@@ -46,7 +46,7 @@
                 <Input
                     width="90%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>PostalCode}"
+                    placeholder="{i18n>PostalCode}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
@@ -55,7 +55,7 @@
                 <Input
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>City}"
+                    placeholder="{i18n>City}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="3"/>
@@ -71,26 +71,26 @@
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="-"
                     items="{
-                        path: '/Consignment/Cities',
+                        path: 'consignment>/Cities',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
                 <ComboBox
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="-"
                     items="{
-                        path: '/Consignment/Countries',
+                        path: 'consignment>/Countries',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
             </FlexBox>
         </VBox>
@@ -106,18 +106,18 @@
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="Fr"
                     items="{
-                        path: '/Forwarding/PersonTypes',
+                        path: 'consignment>/ForwardingPersonTypes',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
                 <Input
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>ForwarderName}"
+                    placeholder="{i18n>ForwarderName}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="3"/>
@@ -127,7 +127,7 @@
             <Input
                 width="100%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                value="{i18n>ConsignmentVia}"
+                placeholder="{i18n>ConsignmentVia}"
                 valueLiveUpdate="true"/>
             <FlexBox
                 width="100%"
@@ -136,7 +136,7 @@
                 <Input
                     width="90%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>PostalCode}"
+                    placeholder="{i18n>PostalCode}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
@@ -145,7 +145,7 @@
                 <Input
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                    value="{i18n>City}"
+                    placeholder="{i18n>City}"
                     valueLiveUpdate="true">
                     <layoutData>
                         <FlexItemData growFactor="3"/>
@@ -161,26 +161,26 @@
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="-"
                     items="{
-                        path: '/Consignment/Cities',
+                        path: 'consignment>/Cities',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
                 <ComboBox
                     width="100%"
                     class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                     selectedKey="-"
                     items="{
-                        path: '/Consignment/Countries',
+                        path: 'consignment>/Countries',
                         sorter: { path: 'text' }
                     }">
                     <layoutData>
                         <FlexItemData growFactor="1"/>
                     </layoutData>
-                    <core:Item key="{key}" text="{text}"/>
+                    <core:Item key="{consignment>key}" text="{consignment>text}"/>
                 </ComboBox>
             </FlexBox>
         </VBox>

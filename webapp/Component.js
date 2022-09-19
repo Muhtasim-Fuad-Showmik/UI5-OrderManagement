@@ -89,6 +89,42 @@ sap.ui.define([
                             text: "Forwarding Agent"
                         }
                     ]
+                },
+                OrderDetails: {
+                    OrderTypes: [
+                        {
+                            key: "-",
+                            text: "Order Types"
+                        },
+                        {
+                            key: "Ex",
+                            text: "Express"
+                        },
+                        {
+                            key: "Cs",
+                            text: "Casual"
+                        }
+                    ],
+                    RecipientTypes: [
+                        {
+                            key: "Cs",
+                            text: "Customer"
+                        },
+                        {
+                            key: "Pt",
+                            text: "Partner"
+                        }
+                    ],
+                    PaymentPolicies: [
+                        {
+                            key: "Tp",
+                            text: "Terms of Payment"
+                        },
+                        {
+                            key: "Cp",
+                            text: "Conditions of Payment"
+                        }
+                    ]
                 }
             };
             var oModel = new JSONModel(oData);

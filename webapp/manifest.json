@@ -79,6 +79,14 @@
 					],
 					"fallbackLocale": ""
 				}
+            },
+            "consignment": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/consignment.json"
+            },
+            "orderDetails": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/OrderDetails.json"
             }
         },
         "rootView": {

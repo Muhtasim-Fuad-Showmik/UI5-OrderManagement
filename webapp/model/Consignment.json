@@ -1,0 +1,73 @@
+{
+    "Cities": [
+        {
+            "key": "-",
+            "text": "City",
+            "country": "None"
+        },
+        {
+            "key": "ItRo",
+            "text": "Rome",
+            "country": "Italy"
+        },
+        {
+            "key": "ItVn",
+            "text": "Venice",
+            "country": "Italy"
+        },
+        {
+            "key": "ItNp",
+            "text": "Naples",
+            "country": "Italy"
+        },
+        {
+            "key": "DeBn",
+            "text": "Berlin",
+            "country": "Germany"
+        },
+        {
+            "key": "DeHg",
+            "text": "Hamburg",
+            "country": "Germany"
+        },
+        {
+            "key": "DeMc",
+            "text": "Munich",
+            "country": "Germany"
+        }
+    ],
+    "Countries": [
+        {
+            "key": "-",
+            "text": "Country"
+        },
+        {
+            "key": "It",
+            "text": "Italy"
+        },
+        {
+            "key": "De",
+            "text": "Germany"
+        }
+    ],
+    "ConsignmentPersonTypes": [
+        {
+            "key": "Ce",
+            "text": "Consignee of Goods"
+        },
+        {
+            "key": "Cr",
+            "text": "Consignor of Goods"
+        }
+    ],
+    "ForwardingPersonTypes": [
+        {
+            "key": "Fr",
+            "text": "Forwarder"
+        },
+        {
+            "key": "Fa",
+            "text": "Forwarding Agent"
+        }
+    ]
+}

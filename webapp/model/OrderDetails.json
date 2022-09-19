@@ -1,0 +1,36 @@
+{
+    "OrderTypes": [
+        {
+            "key": "-",
+            "text": "Order Types"
+        },
+        {
+            "key": "Ex",
+            "text": "Express"
+        },
+        {
+            "key": "Cs",
+            "text": "Casual"
+        }
+    ],
+    "PaymentPolicies": [
+        {
+            "key": "Tp",
+            "text": "Terms of Payment"
+        },
+        {
+            "key": "Cp",
+            "text": "Conditions of Payment"
+        }
+    ],
+    "RecipientTypes": [
+        {
+            "key": "Cs",
+            "text": "Customer"
+        },
+        {
+            "key": "Pt",
+            "text": "Partner"
+        }
+    ]
+}
