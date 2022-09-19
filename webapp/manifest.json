@@ -1,0 +1,132 @@
+{
+    "_version": "1.1.0",
+	
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "ordermanagement",
+        "type": "application",
+        "i18n": {
+            "bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				"", "de", "it"
+			],
+			"fallbackLocale": ""
+        },
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "dataSources": {
+            "<dataSourceAlias>": {
+                "uri": "<uri>",
+                "settings": {
+                    "localUri": "<localUri>"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "_version": "1.1.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "<icon>",
+            "favIcon": "<favIcon>",
+            "phone": "<phone>",
+            "phone@2": "<phone@2>",
+            "tablet": "<tablet>",
+            "tablet@2": "<tablet@2>"
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "resources": {
+            "js": [
+                {
+                    "uri": "<uri>"
+                }
+            ],
+            "css": [
+                {
+                    "uri": "<uri>",
+                    "id": "<id>"
+                }
+            ]
+        },
+        "dependencies": {
+            "minUI5Version": "1.106.0",
+            "libs": {
+                "sap.m": {},
+				"sap.ui.core": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+					"bundleName": "ordermanagement.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+            }
+        },
+        "rootView": {
+			"viewName": "ordermanagement.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+        "handleValidation": false,
+        "config": {
+          
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "type": "View",
+                "viewType": "XML",
+                "path": "ordermanagement.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "transition": "slide",
+                "async": true
+            },
+            "routes": [{
+                "pattern": "",
+                "name": "appHome",
+                "target": "home"
+            }],
+            "targets": {
+                "home": {
+                    "id": "home",
+                    "name": "Home",
+                    "level": 1
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+
+    "sap.platform.abap": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    },
+    "sap.platform.hcp": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    }
+}

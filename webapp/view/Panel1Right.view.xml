@@ -1,0 +1,188 @@
+<mvc:View
+    controllerName="ordermanagement.controller.Panel1Right"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core">
+    <VBox>
+        <VBox class="sapUiMediumMarginBottom">
+            <FlexBox
+                fitContainer="true"
+                alignItems="Start"
+                alignContent="Stretch"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="Ce"
+                    items="{
+                        path: '/Consignment/PersonTypes',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>ConsigneeOfGoodsName}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <Input
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                value="{i18n>ConsignmentVia}"
+                valueLiveUpdate="true"/>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <Input
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>PostalCode}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>City}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: '/Consignment/Cities',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+                <ComboBox
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: '/Consignment/Countries',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+            </FlexBox>
+        </VBox>
+
+        <VBox class="sapUiMediumMarginBottom">
+            <FlexBox
+                fitContainer="true"
+                alignItems="Start"
+                alignContent="Stretch"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="Fr"
+                    items="{
+                        path: '/Forwarding/PersonTypes',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>ForwarderName}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <Input
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                value="{i18n>ConsignmentVia}"
+                valueLiveUpdate="true"/>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <Input
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>PostalCode}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    value="{i18n>City}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: '/Consignment/Cities',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+                <ComboBox
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: '/Consignment/Countries',
+                        sorter: { path: 'text' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{key}" text="{text}"/>
+                </ComboBox>
+            </FlexBox>
+        </VBox>
+    </VBox>
+</mvc:View>

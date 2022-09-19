@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="ordermanagement.controller.Home"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <!-- Panel 1 -->
+    <VBox>
+        <mvc:XMLView viewName="ordermanagement.view.Panel1"/>
+    </VBox>
+</mvc:View>
