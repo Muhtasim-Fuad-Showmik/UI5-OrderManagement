@@ -1,0 +1,63 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <TableSelectDialog
+        noDataText="No Forwarders Found"
+        title="Select Forwarder"
+        search=".handleSearch"
+        confirm=".handleValueHelpClose"
+        cancel=".handleValueHelpClose"
+        showClearButton="false"
+        items="{
+            path: 'consignment>/Forwarder',
+            sorter: {
+                path: 'PartnerName',
+                descending: false
+            }
+        }">
+        <ColumnListItem selected="{selected}">
+            <cells>
+                <ObjectIdentifier title="{Name}" text="{consignment>PartnerCode}"/>
+                <Text text="{consignment>PartnerName}"/>
+                <Text text="{consignment>Province}"/>
+                <Text text="{consignment>City}"/>
+                <Text text="{consignment>Country}"/>
+                <Text text="{consignment>Address}"/>
+                <Text text="{consignment>PostalCode}"/>
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>Partner}" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>Province}" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>City}" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>Country}" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>Address}" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="{i18n>PostalCode}" />
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog>
+</c:FragmentDefinition>

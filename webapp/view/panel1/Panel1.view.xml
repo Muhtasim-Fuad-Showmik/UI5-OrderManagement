@@ -1,9 +1,8 @@
 <mvc:View
-    controllerName="ordermanagement.controller.Panel1"
+    controllerName="ordermanagement.controller.panel1.Panel1"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core">
+    xmlns:mvc="sap.ui.core.mvc">
     <l:VerticalLayout
         width="100%"
         class="girdWrapper">
@@ -12,9 +11,9 @@
             hSpacing="2"
             defaultSpan="XL6 L6 M12">
             <l:content>
-                <mvc:XMLView viewName="ordermanagement.view.Panel1Left" />
+                <mvc:XMLView viewName="ordermanagement.view.panel1.Panel1Left" />
                 <!-- Form for inputting personell information regarding Consignments and Forwarding -->
-                <mvc:XMLView viewName="ordermanagement.view.Panel1Right" />
+                <mvc:XMLView viewName="ordermanagement.view.panel1.Panel1Right" />
             </l:content>
         </l:Grid>
     </l:VerticalLayout>

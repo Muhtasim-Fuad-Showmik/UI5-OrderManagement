@@ -50,24 +50,80 @@
             "text": "Germany"
         }
     ],
-    "ConsignmentPersonTypes": [
+    "ConsigneesOfGoods": [
         {
-            "key": "Ce",
-            "text": "Consignee of Goods"
+            "PartnerCode": "1410866423",
+            "PartnerName": "Tom Holland",
+            "Province": "TN",
+            "City": "Trento",
+            "Country": "Italy",
+            "Address": "Via Frischin 3",
+            "PostalCode": "39100"
         },
         {
-            "key": "Cr",
-            "text": "Consignor of Goods"
+            "PartnerCode": "1410866424",
+            "PartnerName": "Drew Barrymoore",
+            "Province": "NY",
+            "City": "New York",
+            "Country": "USA",
+            "Address": "11th, Broadway Street",
+            "PostalCode": "32145"
+        },
+        {
+            "PartnerCode": "1410866425",
+            "PartnerName": "Elisha Cuthbert",
+            "Province": "LN",
+            "City": "London",
+            "Country": "Great Britain",
+            "Address": "21st Manchester Avenue",
+            "PostalCode": "53123"
+        },
+        {
+            "PartnerCode": "1410866426",
+            "PartnerName": "Aston Kutcher",
+            "Province": "SN",
+            "City": "Sydney",
+            "Country": "Australia",
+            "Address": "17/2, Candace Road",
+            "PostalCode": "71382"
         }
     ],
-    "ForwardingPersonTypes": [
+    "Forwarder": [
         {
-            "key": "Fr",
-            "text": "Forwarder"
+            "PartnerCode": "1410866623",
+            "PartnerName": "Rosamund Pike",
+            "Province": "TN",
+            "City": "Trento",
+            "Country": "Italy",
+            "Address": "Via Frischin 3",
+            "PostalCode": "39101"
         },
         {
-            "key": "Fa",
-            "text": "Forwarding Agent"
+            "PartnerCode": "1410866624",
+            "PartnerName": "Jason Stratham",
+            "Province": "BN",
+            "City": "Berlin",
+            "Country": "Germany",
+            "Address": "Mohrenstrasse 37",
+            "PostalCode": "10117"
+        },
+        {
+            "PartnerCode": "1410866625",
+            "PartnerName": "Edward Snowden",
+            "Province": "MW",
+            "City": "Moscow",
+            "Country": "Russia",
+            "Address": "Prospekt Tverskaya 9",
+            "PostalCode": "10309"
+        },
+        {
+            "PartnerCode": "1410866626",
+            "PartnerName": "Chris Evans",
+            "Province": "NY",
+            "City": "New York",
+            "Country": "USA",
+            "Address": "13th Yorkshire Street",
+            "PostalCode": "39420"
         }
     ]
 }

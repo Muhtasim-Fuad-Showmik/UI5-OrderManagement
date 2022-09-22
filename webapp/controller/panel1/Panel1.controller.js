@@ -3,9 +3,8 @@ sap.ui.define([
 ], function (Controller) {
     "use strict";
 
-    return Controller.extend("ordermanagement.controller.Panel1", {
+    return Controller.extend("ordermanagement.controller.panel1.Panel1", {
         onInit: function () {
-
         }
     });
 });

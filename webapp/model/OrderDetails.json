@@ -25,12 +25,48 @@
     ],
     "RecipientTypes": [
         {
-            "key": "Cs",
-            "text": "Customer"
+            "customerCode": "1410866423",
+            "customer": "Johny Depp",
+            "province": "TN",
+            "city": " Trento",
+            "country": "Italy",
+            "piva": "0397553088",
+            "commercialOrg": "Z001 - Derga",
+            "distributionChannel": "Z1 - channel",
+            "weeklyCommodity": "ZZ - Division"
         },
         {
-            "key": "Pt",
-            "text": "Partner"
+            "customerCode": "1410866424",
+            "customer": "Brad Pitt",
+            "province": "VN",
+            "city": " Venice",
+            "country": "Italy",
+            "piva": "0397553089",
+            "commercialOrg": "Z002 - Derga",
+            "distributionChannel": "Z2 - channel",
+            "weeklyCommodity": "ZX - Division"
+        },
+        {
+            "customerCode": "1410866425",
+            "customer": "Trevor Noah",
+            "province": "BN",
+            "city": " Berlin",
+            "country": "Germany",
+            "piva": "0397553090",
+            "commercialOrg": "Z001 - Derga",
+            "distributionChannel": "Z1 - channel",
+            "weeklyCommodity": "ZX - Division"
+        },
+        {
+            "customerCode": "1410866426",
+            "customer": "Edris Alba",
+            "province": "HG",
+            "city": " Hamburg",
+            "country": "Germany",
+            "piva": "0397553091",
+            "commercialOrg": "Z002 - Derga",
+            "distributionChannel": "Z3 - channel",
+            "weeklyCommodity": "ZZ - Division"
         }
     ]
 }

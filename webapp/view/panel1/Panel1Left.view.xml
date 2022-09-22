@@ -1,14 +1,14 @@
 <mvc:View
-    controllerName="ordermanagement.controller.Panel1Left"
+    controllerName="ordermanagement.controller.panel1.Panel1Left"
     xmlns="sap.m"
-    xmlns:l="sap.ui.layout"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc">
     <VBox>
         <FlexBox
             fitContainer="true"
             alignItems="Start"
             justifyContent="Center">
+            <!-- Dropdown menu for selecting an order type -->
             <ComboBox
                 width="90%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
@@ -18,35 +18,83 @@
                     sorter: { path: 'text' }
                 }">
                 <layoutData>
-                    <FlexItemData growFactor="1"/>
+                    <FlexItemData growFactor="1" />
                 </layoutData>
                 <core:Item key="{orderDetails>key}" text="{orderDetails>text}"/>
             </ComboBox>
-            <ComboBox
+
+            <!-- Value Helper Dialog input for selecting a customer -->
+            <MultiInput
+                id="panel1customerVHD"
                 width="90%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                selectedKey="Cs"
-                items="{
+                placeholder="Customer"
+                valueHelpRequest=".onValueHelpRequested"
+                suggestionRows="{
                     path: 'orderDetails>/RecipientTypes',
-                    sorter: { path: 'text' }
+                    length: 4
                 }">
                 <layoutData>
                     <FlexItemData growFactor="1"/>
                 </layoutData>
-                <core:Item key="{orderDetails>key}" text="{orderDetails>text}"/>
-            </ComboBox>
+                <suggestionColumns>
+                    <Column>
+                        <Label text="Customer Code"/>
+                    </Column>
+                    <Column>
+                        <Label text="Customer Name"/>
+                    </Column>
+                    <Column>
+                        <Label text="Province"/>
+                    </Column>
+                    <Column>
+                        <Label text="City"/>
+                    </Column>
+                    <Column>
+                        <Label text="Country"/>
+                    </Column>
+                    <Column>
+                        <Label text="PIVA"/>
+                    </Column>
+                    <Column>
+                        <Label text="Commercial Organization"/>
+                    </Column>
+                    <Column>
+                        <Label text="Distribution Channel"/>
+                    </Column>
+                    <Column>
+                        <Label text="Weekly Commodity"/>
+                    </Column>
+                </suggestionColumns>
+                <suggestionRows>
+                    <ColumnListItem>
+                        <Label text="{orderDetails>customerCode}" />
+                        <Label text="{orderDetails>customer}" />
+                        <Label text="{orderDetails>province}" />
+                        <Label text="{orderDetails>city}" />
+                        <Label text="{orderDetails>country}" />
+                        <Label text="{orderDetails>piva}" />
+                        <Label text="{orderDetails>commercialOrg}" />
+                        <Label text="{orderDetails>distributionChannel}" />
+                        <Label text="{orderDetails>weeklyCommodity}" />
+                    </ColumnListItem>
+                </suggestionRows>
+            </MultiInput>
+
+            <!-- Date Picker for entering the requested delivery date -->
             <DatePicker
                 id="reqDeliveryDate"
                 displayFormat="long"
                 placeholder="{i18n>RequestedDeliveryDate}"
                 tooltip="{i18n>RequestedDeliveryDate}"
-                change="handleChange"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"/>
         </FlexBox>
         <FlexBox
             fitContainer="true"
             alignItems="Start"
             justifyContent="Center">
+
+            <!-- Input text field for entering the name of the commercial organization -->
             <Input
                 width="90%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
@@ -56,6 +104,8 @@
                     <FlexItemData growFactor="1"/>
                 </layoutData>
             </Input>
+
+            <!-- Input text field for entering the name of the distribution channel for the order -->
             <Input
                 width="90%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
@@ -65,6 +115,8 @@
                     <FlexItemData growFactor="1"/>
                 </layoutData>
             </Input>
+
+            <!-- Input text field for entering the weekly commodity value -->
             <Input
                 width="100%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
@@ -79,6 +131,8 @@
             fitContainer="true"
             alignItems="Start"
             justifyContent="Center">
+
+            <!-- Input text field for entering the reference number of the customer order -->
             <Input
                 width="90%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
@@ -88,6 +142,8 @@
                     <FlexItemData growFactor="1"/>
                 </layoutData>
             </Input>
+
+            <!-- Dropdown field for selecting any one of the payment policies -->
             <ComboBox
                 width="100%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"

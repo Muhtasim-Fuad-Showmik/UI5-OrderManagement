@@ -24,7 +24,7 @@
 
             <!-- Panel 1 -->
             <VBox>
-                <mvc:XMLView viewName="ordermanagement.view.Panel1"/>
+                <mvc:XMLView viewName="ordermanagement.view.panel1.Panel1"/>
             </VBox>
         </content>
     </Page>
