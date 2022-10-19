@@ -13,16 +13,14 @@ import SectionNavigation from './components/SectionNavigation.vue';
   </header>
 
   <main>
-    <div class="mt-20">
+    <div class="mbt-20">
       <SectionNavigation />
     </div>
     <div class="twoColumn">
-      <LeftPanel class="w-50" />
-      <RightPanel class="w-50" />
+      <LeftPanel class="w-50 mr-15" />
+      <RightPanel class="w-50 ml-15" />
     </div>
   </main>
-
-  <img src="./assets/ui5-ui.png" alt="" class="tempImg">
 </template>
 
 <style scoped>
@@ -35,8 +33,17 @@ header {
   margin: 0 auto 2rem;
 }
 
-.mt-20 {
+.mbt-20 {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.mr-15 {
+  margin-right: 15px;
 }
 
 .tempImg {
