@@ -1,0 +1,21 @@
+<c:FragmentDefinition
+    xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:c="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <ValueHelpDialog
+        title="Customers"
+        ok=".onValueHelpOkPress"
+        cancel=".onValueHelpCancelPress"
+        tokenDisplayBehaviour="false"
+        supportMultiselect="false"
+    >
+        <filterBar>
+            <fb:FilterBar
+                id="panel1CustomersList"
+                search=".onFilterBarSearch"
+                isRunningInValueHelpDialog="true">
+            </fb:FilterBar>
+        </filterBar>
+    </ValueHelpDialog>
+</c:FragmentDefinition>

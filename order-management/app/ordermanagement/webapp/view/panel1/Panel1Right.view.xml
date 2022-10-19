@@ -1,0 +1,187 @@
+<mvc:View
+    controllerName="test.ordermanagement.ordermanagement.controller.panel1.Panel1Right"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core">
+    <VBox>
+        <VBox class="sapUiMediumMarginBottom">
+            <FlexBox
+                fitContainer="true"
+                alignItems="Start"
+                alignContent="Stretch"
+                justifyContent="Start">
+                <Input
+                    id="recipientOfGoodsSelection"
+                    width="90%"
+                    type="Text"
+                    placeholder="{i18n>RecipientOfGoods}"
+                    showValueHelp="true"
+                    valueHelpOnly="true"
+                    valueHelpRequest="handleValueHelpForRecipientOfGoods"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>ConsigneeOfGoodsName}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <Input
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>ConsignmentVia}"
+                valueLiveUpdate="true"/>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <Input
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>PostalCode}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>City}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: 'consignment>/Cities',
+                        sorter: { path: 'title' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{consignment>code}" text="{consignment>title}"/>
+                </ComboBox>
+                <ComboBox
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: 'consignment>/Countries',
+                        sorter: { path: 'name' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{consignment>code}" text="{consignment>name}"/>
+                </ComboBox>
+            </FlexBox>
+        </VBox>
+
+        <VBox class="sapUiMediumMarginBottom">
+            <FlexBox
+                fitContainer="true"
+                alignItems="Start"
+                alignContent="Stretch"
+                justifyContent="Start">
+                <Input
+                    id="forwarderSelection"
+                    width="90%"
+                    type="Text"
+                    placeholder="{i18n>Forwarder}"
+                    showValueHelp="true"
+                    valueHelpOnly="true"
+                    valueHelpRequest="handleValueHelpForForwarder"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>ForwarderName}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <Input
+                width="100%"
+                class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                placeholder="{i18n>ConsignmentVia}"
+                valueLiveUpdate="true"/>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <Input
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>PostalCode}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                </Input>
+                <Input
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    placeholder="{i18n>City}"
+                    valueLiveUpdate="true">
+                    <layoutData>
+                        <FlexItemData growFactor="3"/>
+                    </layoutData>
+                </Input>
+            </FlexBox>
+            <FlexBox
+                width="100%"
+                alignItems="Start"
+                justifyContent="Start">
+                <ComboBox
+                    width="90%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: 'consignment>/Cities',
+                        sorter: { path: 'title' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{consignment>code}" text="{consignment>title}"/>
+                </ComboBox>
+                <ComboBox
+                    width="100%"
+                    class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
+                    selectedKey="-"
+                    items="{
+                        path: 'consignment>/Countries',
+                        sorter: { path: 'name' }
+                    }">
+                    <layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </layoutData>
+                    <core:Item key="{consignment>code}" text="{consignment>name}"/>
+                </ComboBox>
+            </FlexBox>
+        </VBox>
+    </VBox>
+</mvc:View>

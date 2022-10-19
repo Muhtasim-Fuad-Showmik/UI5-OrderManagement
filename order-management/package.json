@@ -10,10 +10,15 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.102.10",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
     "sqlite3": "^5.1.2"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds watch",
+    "watch-ordermanagement": "cds watch --open ordermanagement/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "engines": {
     "node": "^16.15"
@@ -44,6 +49,13 @@
     }
   },
   "cds": {
+    "i18n": {
+      "for_sql": [
+        "en",
+        "it",
+        "de"
+      ]
+    },
     "requires": {
       "db": {
         "kind": "sqlite",
@@ -52,5 +64,8 @@
         }
       }
     }
-  }
+  },
+  "sapux": [
+    "app/ordermanagement"
+  ]
 }

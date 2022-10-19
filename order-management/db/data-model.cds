@@ -29,8 +29,8 @@ entity PaymentPolicies {
 }
 
 entity RecipientTypes {
-    key code    : Integer;
-    name            : String;
+    key code            : Integer;
+    name                : String;
     province            : String;
     city                : String;
     country             : Country;

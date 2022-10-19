@@ -84,7 +84,7 @@ sap.ui.define([
                 aRecipients = oModel.getProperty(modelPropertyPath);
             
             aRecipients.forEach(function (oRecipient) {
-                oRecipient.selected = (oRecipient.PartnerName === sInputValue);
+                oRecipient.selected = (oRecipient.name === sInputValue);
             });
             oModel.setProperty(modelPropertyPath, aRecipients);
         }
