@@ -50,10 +50,10 @@
   },
   "cds": {
     "i18n": {
-      "for_sql": [
+      "for_sqlite": [
         "en",
-        "it",
-        "de"
+        "de",
+        "it"
       ]
     },
     "requires": {

@@ -17,7 +17,7 @@ import SectionNavigation from './components/SectionNavigation.vue';
       <SectionNavigation />
     </div>
     <div class="twoColumn">
-      <LeftPanel class="w-50 mr-15" />
+      <LeftPanel class="w-50 mr-15" :orderTypes="orderTypes" />
       <RightPanel class="w-50 ml-15" />
     </div>
   </main>

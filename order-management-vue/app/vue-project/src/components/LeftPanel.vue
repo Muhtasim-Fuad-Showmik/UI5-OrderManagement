@@ -1,3 +1,33 @@
+<script>
+export default {
+    name: 'LeftPanel',
+    data: function() {
+        return {
+            orderTypes: [
+                {
+                    "code": "Cs",
+                    "title": "Casual",
+                },
+                {
+                    "code": "Ex",
+                    "title": "Express"
+                }
+            ],
+            paymentPolicies: [
+                {
+                    "code" : "Cp",
+                    "title" : "Conditions of Payment"
+                },
+                {
+                    "code" : "Tp",
+                    "title" : "Terms of Payment"
+                }
+            ]
+        }
+    }
+}
+</script>
+
 <script setup>
 </script>
 
@@ -6,9 +36,7 @@
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" name="orderType">
-                    <option value="" disabled selected hidden>Order Types</option>
-                    <option value="Cs">Casual</option>
-                    <option value="Ex">Express</option>
+                    <option v-for="orderType in orderTypes" value="orderType.code">{{ orderType.title }}</option>
                 </select>
             </div>
 
@@ -42,9 +70,7 @@
 
             <div class="inputDiv">
                 <select class="inputItem" name="orderType">
-                    <option value="" disabled selected hidden>Terms of Payment</option>
-                    <option value="Cp">Conditions of Payment</option>
-                    <option value="Tp">Terms of Payment</option>
+                    <option v-for="paymentPolicy in paymentPolicies" value="paymentPolicy.code">{{ paymentPolicy.title }}</option>
                 </select>
             </div>
         </div>

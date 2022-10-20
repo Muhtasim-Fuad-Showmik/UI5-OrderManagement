@@ -82,6 +82,8 @@ sap.ui.define([
                 oModel = this.getView().getModel(this.modelName),
                 modelPropertyPath = "/" + this.modelPropertyName,
                 aRecipients = oModel.getProperty(modelPropertyPath);
+                console.log("Model", oModel);
+                console.log("Get Object", oModel._getObject.toString());
             
             aRecipients.forEach(function (oRecipient) {
                 oRecipient.selected = (oRecipient.name === sInputValue);

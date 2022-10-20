@@ -41,7 +41,7 @@ sap.ui.define([
             });
             
             this._pValueHelpDialog.then(function(oValueHelpDialog) {
-                this.helpDialog = oValueHelpDialog;
+                this._configValueHelpDialog();
                 oValueHelpDialog.open();
             }.bind(this));
         },
@@ -73,6 +73,16 @@ sap.ui.define([
             this.modelPropertyName = "ConsigneesOfGoods";
             this.inputId = "recipientOfGoodsSelection";
             this.handleValueHelp();
+        },
+
+        _configValueHelpDialog: function () {
+            // let sInputValue = this.byId(this.inputId).getValue(),
+            // oModel = this.getView().getModel(),
+            // modelPropertyPath = "/" + this.modelPropertyName,
+            // aProducts = oModel.getAllBindings.toString();
+            // console.log("Input Value", sInputValue);
+            // console.log("oModel", oModel);
+            // console.log("aProducts", aProducts);
         }
     });
 });

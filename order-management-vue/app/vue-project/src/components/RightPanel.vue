@@ -1,3 +1,33 @@
+<script>
+export default {
+    name: 'RightPanel',
+    data: function() {
+        return {
+            orderTypes: [
+                {
+                    "code": "Cs",
+                    "title": "Casual",
+                },
+                {
+                    "code": "Ex",
+                    "title": "Express"
+                }
+            ],
+            paymentPolicies: [
+                {
+                    "code" : "Cp",
+                    "title" : "Conditions of Payment"
+                },
+                {
+                    "code" : "Tp",
+                    "title" : "Terms of Payment"
+                }
+            ]
+        }
+    }
+}
+</script>
+
 <script setup>
 </script>
 

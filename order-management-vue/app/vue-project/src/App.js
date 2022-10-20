@@ -1,8 +1,3 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-
-import './assets/main.css';
-
 export default {
     data() {
         return {
@@ -19,5 +14,3 @@ export default {
         }
     }
 }
-
-createApp(App).mount('#app');

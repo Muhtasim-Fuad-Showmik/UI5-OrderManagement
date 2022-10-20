@@ -1,7 +1,7 @@
-locale,code,title
-en,Tp,Terms of Payment
-en,Cp,Conditions of Payment
-de,Tp,Zahlungsbedingungen
-de,Cp,Zahlungsverhältnisse
-it,Tp,Modalità di Pagamento
-it,Cp,Condizioni di Pagamento
+code,locale,title
+Tp,en,Terms of Payment
+Cp,en,Conditions of Payment
+Tp,de,Zahlungsbedingungen
+Cp,de,Zahlungsverhältnisse
+Tp,it,Modalità di Pagamento
+Cp,it,Condizioni di Pagamento

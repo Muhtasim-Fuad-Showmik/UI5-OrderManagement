@@ -1,7 +1,7 @@
-locale,code,title
-en,Ex,Express
-en,Cs,Casual
-de,Ex,Ausdrücken
-de,Cs,Zwanglos
-it,Ex,Esprimere
-it,Cs,Casuale
+code,locale,title
+Ex,en,Express
+Cs,en,Casual
+Ex,de,Ausdrücken
+Cs,de,Zwanglos
+Ex,it,Esprimere
+Cs,it,Casuale
