@@ -5,22 +5,22 @@ export default {
         return {
             orderTypes: [
                 {
-                    "code": "Cs",
-                    "title": "Casual",
+                    code: "Cs",
+                    title: "Casual",
                 },
                 {
-                    "code": "Ex",
-                    "title": "Express"
+                    code: "Ex",
+                    title: "Express"
                 }
             ],
             paymentPolicies: [
                 {
-                    "code" : "Cp",
-                    "title" : "Conditions of Payment"
+                    code: "Cp",
+                    title: "Conditions of Payment"
                 },
                 {
-                    "code" : "Tp",
-                    "title" : "Terms of Payment"
+                    code : "Tp",
+                    title : "Terms of Payment"
                 }
             ]
         }
@@ -35,8 +35,8 @@ export default {
     <div class="dBlock">
         <div class="row">
             <div class="inputDiv">
-                <select class="inputItem" name="orderType">
-                    <option v-for="orderType in orderTypes" value="orderType.code">{{ orderType.title }}</option>
+                <select class="inputItem" name="orderType" v-model="Cs">
+                    <option v-for="orderType in orderTypes" :key="orderType.code" :value="orderType.code">{{ orderType.title }}</option>
                 </select>
             </div>
 
@@ -70,7 +70,7 @@ export default {
 
             <div class="inputDiv">
                 <select class="inputItem" name="orderType">
-                    <option v-for="paymentPolicy in paymentPolicies" value="paymentPolicy.code">{{ paymentPolicy.title }}</option>
+                    <option v-for="paymentPolicy in paymentPolicies" :key="paymentPolicy.code" :value="paymentPolicy.code">{{ paymentPolicy.title }}</option>
                 </select>
             </div>
         </div>
@@ -78,7 +78,6 @@ export default {
 </template>
 
 <style>
-
 .dBlock {
     display: block;
 }
@@ -94,9 +93,9 @@ export default {
 }
     
 .inputItem {
-    height: 30px;
+    height: 32px;
     width: 100%;
-    padding: 1rem;
+    padding: 0 10px;
     border-radius: 5px;
 }
 

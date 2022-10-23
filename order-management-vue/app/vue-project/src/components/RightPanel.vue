@@ -3,26 +3,124 @@ export default {
     name: 'RightPanel',
     data: function() {
         return {
-            orderTypes: [
-                {
-                    "code": "Cs",
-                    "title": "Casual",
-                },
-                {
-                    "code": "Ex",
-                    "title": "Express"
-                }
-            ],
-            paymentPolicies: [
-                {
-                    "code" : "Cp",
-                    "title" : "Conditions of Payment"
-                },
-                {
-                    "code" : "Tp",
-                    "title" : "Terms of Payment"
-                }
-            ]
+            Cities: [
+            {
+                "key": "ItRo",
+                "text": "Rome",
+                "country": "Italy"
+            },
+            {
+                "key": "ItVn",
+                "text": "Venice",
+                "country": "Italy"
+            },
+            {
+                "key": "ItNp",
+                "text": "Naples",
+                "country": "Italy"
+            },
+            {
+                "key": "DeBn",
+                "text": "Berlin",
+                "country": "Germany"
+            },
+            {
+                "key": "DeHg",
+                "text": "Hamburg",
+                "country": "Germany"
+            },
+            {
+                "key": "DeMc",
+                "text": "Munich",
+                "country": "Germany"
+            }
+        ],
+        Countries: [
+            {
+                "key": "It",
+                "text": "Italy"
+            },
+            {
+                "key": "De",
+                "text": "Germany"
+            }
+        ],
+        ConsigneesOfGoods: [
+            {
+                "PartnerCode": "1410866423",
+                "PartnerName": "Tom Holland",
+                "Province": "TN",
+                "City": "Trento",
+                "Country": "Italy",
+                "Address": "Via Frischin 3",
+                "PostalCode": "39100"
+            },
+            {
+                "PartnerCode": "1410866424",
+                "PartnerName": "Drew Barrymoore",
+                "Province": "NY",
+                "City": "New York",
+                "Country": "USA",
+                "Address": "11th, Broadway Street",
+                "PostalCode": "32145"
+            },
+            {
+                "PartnerCode": "1410866425",
+                "PartnerName": "Elisha Cuthbert",
+                "Province": "LN",
+                "City": "London",
+                "Country": "Great Britain",
+                "Address": "21st Manchester Avenue",
+                "PostalCode": "53123"
+            },
+            {
+                "PartnerCode": "1410866426",
+                "PartnerName": "Aston Kutcher",
+                "Province": "SN",
+                "City": "Sydney",
+                "Country": "Australia",
+                "Address": "17/2, Candace Road",
+                "PostalCode": "71382"
+            }
+        ],
+        Forwarder: [
+            {
+                "PartnerCode": "1410866623",
+                "PartnerName": "Rosamund Pike",
+                "Province": "TN",
+                "City": "Trento",
+                "Country": "Italy",
+                "Address": "Via Frischin 3",
+                "PostalCode": "39101"
+            },
+            {
+                "PartnerCode": "1410866624",
+                "PartnerName": "Jason Stratham",
+                "Province": "BN",
+                "City": "Berlin",
+                "Country": "Germany",
+                "Address": "Mohrenstrasse 37",
+                "PostalCode": "10117"
+            },
+            {
+                "PartnerCode": "1410866625",
+                "PartnerName": "Edward Snowden",
+                "Province": "MW",
+                "City": "Moscow",
+                "Country": "Russia",
+                "Address": "Prospekt Tverskaya 9",
+                "PostalCode": "10309"
+            },
+            {
+                "PartnerCode": "1410866626",
+                "PartnerName": "Chris Evans",
+                "Province": "NY",
+                "City": "New York",
+                "Country": "USA",
+                "Address": "13th Yorkshire Street",
+                "PostalCode": "39420"
+            }
+        ]
         }
     }
 }
@@ -63,15 +161,13 @@ export default {
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" name="recipientCity">
-                    <option value="Br">Berlin</option>
-                    <option value="Ro">Rome</option>
+                    <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" name="recipientCountry">
-                    <option value="De">Germany</option>
-                    <option value="It">Italy</option>
+                    <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
                 </select>
             </div>
         </div>
@@ -108,15 +204,13 @@ export default {
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" name="forwarderCity">
-                    <option value="Br">Berlin</option>
-                    <option value="Ro">Rome</option>
+                    <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" name="forwarderCountry">
-                    <option value="De">Germany</option>
-                    <option value="It">Italy</option>
+                    <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
                 </select>
             </div>
         </div>

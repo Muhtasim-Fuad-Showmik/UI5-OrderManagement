@@ -42,6 +42,7 @@ sap.ui.define([
             
             this._pValueHelpDialog.then(function(oValueHelpDialog) {
                 this._configValueHelpDialog();
+                this.helpDialog = oValueHelpDialog;
                 oValueHelpDialog.open();
             }.bind(this));
         },
