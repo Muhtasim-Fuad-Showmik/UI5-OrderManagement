@@ -127,6 +127,13 @@ export default {
 </script>
 
 <script setup>
+    import {ref} from "vue";
+    import PartnerModal from "./PartnerModal.vue";
+
+    const modalActive = ref(null);
+    const toggleModal = () => {
+        modalActive.value = !modalActive.value;
+    }
 </script>
 
 <template class="gridLayout">
@@ -138,7 +145,7 @@ export default {
             </div>
 
             <div class="inputDiv inpButton">
-                <i class="fa-regular fa-window-restore fa-lg modalIcon"></i>
+                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="toggleModal"></i>
             </div>
 
             <div class="inputDiv">
@@ -185,7 +192,7 @@ export default {
             </div>
 
             <div class="inputDiv inpButton">
-                <i class="fa-regular fa-window-restore fa-lg modalIcon"></i>
+                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="toggleModal"></i>
             </div>
 
             <div class="inputDiv">
@@ -222,6 +229,10 @@ export default {
                 </select>
             </div>
         </div>
+
+        <PartnerModal :modalActive="modalActive">
+            <h1>Hello world</h1>
+        </PartnerModal>
     </div>
 </template>
 

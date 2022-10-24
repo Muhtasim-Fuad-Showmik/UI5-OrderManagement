@@ -1,6 +1,10 @@
 <template>
-    <div class="outer">
-        <div class="inner">
+    <div 
+    v-show="modalActive"
+    class="outer">
+        <div 
+        v-if="modalActive"
+        class="inner">
             <slot />
             <button class="btn-primary">Cancel</button>
         </div>
@@ -16,7 +20,7 @@
     });
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     .outer {
         position: absolute;
         top: 0px;
