@@ -133,8 +133,12 @@ export default {
     <div class="dBlock">
         <!-- Recipient of Goods -->
         <div class="row">
-            <div class="inputDiv">
+            <div class="inputDiv withButton">
                 <input class="inputItem" type="text" placeholder="Recipient of Goods">
+            </div>
+
+            <div class="inputDiv inpButton">
+                <i class="fa-regular fa-window-restore fa-lg modalIcon"></i>
             </div>
 
             <div class="inputDiv">
@@ -176,8 +180,12 @@ export default {
 
         <!-- Forwarder -->
         <div class="row">
-            <div class="inputDiv">
+            <div class="inputDiv withButton">
                 <input class="inputItem" type="text" placeholder="Forwarder">
+            </div>
+
+            <div class="inputDiv inpButton">
+                <i class="fa-regular fa-window-restore fa-lg modalIcon"></i>
             </div>
 
             <div class="inputDiv">
@@ -232,12 +240,35 @@ export default {
     flex: 1;
     padding: 0px 8px;
 }
+
+.inputDiv.withButton {
+    flex: 0.9;
+    padding: 0px 0px 0px 8px;
+}
+
+.inputDiv.inpButton {
+    flex: 0.05;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
     
 .inputItem {
     height: 30px;
     width: 100%;
     padding: 1rem;
     border-radius: 5px;
+}
+
+.modalIcon {
+    color: white;
+    transition-duration: 150ms;
+    cursor: pointer;
+}
+
+.modalIcon:hover {
+    --tw-text-opacity: 1;
+    color: hsla(160, 100%, 37%, 1);
 }
 
 .row {
