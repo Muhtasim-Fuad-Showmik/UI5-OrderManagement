@@ -123,11 +123,9 @@ sap.ui.define([
         onValueHelpOkPress: function(oEvent) {
             // var aTokens = oEvent.getParameter("tokens");
 			// this._oMultiInput.setTokens(aTokens);
-            var oSelectedItem = oEvent.getParameter("selectedItem"),
+            let oSelectedItem = oEvent.getParameter("selectedItem"),
             aTokens = oEvent.getParameter("tokens"),
             oInput = this.byId("panel1customerVHD");
-            console.log("aTokens: ", aTokens);
-            console.log("selected item: ", oSelectedItem);
 
 			this._oVHD.close();
         },

@@ -16,7 +16,7 @@
                 descending: false
             }
         }">
-        <ColumnListItem selected="{selected}">
+        <ColumnListItem>
             <cells>
                 <ObjectIdentifier title="{Name}" text="{consignment>code}"/>
                 <Text text="{consignment>name}"/>

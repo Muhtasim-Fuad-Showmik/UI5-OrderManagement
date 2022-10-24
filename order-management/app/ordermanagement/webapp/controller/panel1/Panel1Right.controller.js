@@ -26,6 +26,10 @@ sap.ui.define([
             oBinding.filter([oFilter]);
         },
 
+        handleValueHelpPress: function () {
+            console.log("Pressed!");
+        },
+
         handleValueHelp: function () {
             let fragmentPath = "test.ordermanagement.ordermanagement.view.panel1." + this.fragmentName;
 
