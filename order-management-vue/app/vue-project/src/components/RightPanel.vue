@@ -1,139 +1,58 @@
 <script>
 export default {
     name: 'RightPanel',
+    props: ['selectedRecipientOfGoods', 'selectedForwarder'],
     data: function() {
         return {
             Cities: [
-            {
-                "key": "ItRo",
-                "text": "Rome",
-                "country": "Italy"
-            },
-            {
-                "key": "ItVn",
-                "text": "Venice",
-                "country": "Italy"
-            },
-            {
-                "key": "ItNp",
-                "text": "Naples",
-                "country": "Italy"
-            },
-            {
-                "key": "DeBn",
-                "text": "Berlin",
-                "country": "Germany"
-            },
-            {
-                "key": "DeHg",
-                "text": "Hamburg",
-                "country": "Germany"
-            },
-            {
-                "key": "DeMc",
-                "text": "Munich",
-                "country": "Germany"
-            }
-        ],
-        Countries: [
-            {
-                "key": "It",
-                "text": "Italy"
-            },
-            {
-                "key": "De",
-                "text": "Germany"
-            }
-        ],
-        ConsigneesOfGoods: [
-            {
-                "PartnerCode": "1410866423",
-                "PartnerName": "Tom Holland",
-                "Province": "TN",
-                "City": "Trento",
-                "Country": "Italy",
-                "Address": "Via Frischin 3",
-                "PostalCode": "39100"
-            },
-            {
-                "PartnerCode": "1410866424",
-                "PartnerName": "Drew Barrymoore",
-                "Province": "NY",
-                "City": "New York",
-                "Country": "USA",
-                "Address": "11th, Broadway Street",
-                "PostalCode": "32145"
-            },
-            {
-                "PartnerCode": "1410866425",
-                "PartnerName": "Elisha Cuthbert",
-                "Province": "LN",
-                "City": "London",
-                "Country": "Great Britain",
-                "Address": "21st Manchester Avenue",
-                "PostalCode": "53123"
-            },
-            {
-                "PartnerCode": "1410866426",
-                "PartnerName": "Aston Kutcher",
-                "Province": "SN",
-                "City": "Sydney",
-                "Country": "Australia",
-                "Address": "17/2, Candace Road",
-                "PostalCode": "71382"
-            }
-        ],
-        Forwarder: [
-            {
-                "PartnerCode": "1410866623",
-                "PartnerName": "Rosamund Pike",
-                "Province": "TN",
-                "City": "Trento",
-                "Country": "Italy",
-                "Address": "Via Frischin 3",
-                "PostalCode": "39101"
-            },
-            {
-                "PartnerCode": "1410866624",
-                "PartnerName": "Jason Stratham",
-                "Province": "BN",
-                "City": "Berlin",
-                "Country": "Germany",
-                "Address": "Mohrenstrasse 37",
-                "PostalCode": "10117"
-            },
-            {
-                "PartnerCode": "1410866625",
-                "PartnerName": "Edward Snowden",
-                "Province": "MW",
-                "City": "Moscow",
-                "Country": "Russia",
-                "Address": "Prospekt Tverskaya 9",
-                "PostalCode": "10309"
-            },
-            {
-                "PartnerCode": "1410866626",
-                "PartnerName": "Chris Evans",
-                "Province": "NY",
-                "City": "New York",
-                "Country": "USA",
-                "Address": "13th Yorkshire Street",
-                "PostalCode": "39420"
-            }
-        ]
+                {
+                    "key": "ItRo",
+                    "text": "Rome",
+                    "country": "Italy"
+                },
+                {
+                    "key": "ItVn",
+                    "text": "Venice",
+                    "country": "Italy"
+                },
+                {
+                    "key": "ItNp",
+                    "text": "Naples",
+                    "country": "Italy"
+                },
+                {
+                    "key": "DeBn",
+                    "text": "Berlin",
+                    "country": "Germany"
+                },
+                {
+                    "key": "DeHg",
+                    "text": "Hamburg",
+                    "country": "Germany"
+                },
+                {
+                    "key": "DeMc",
+                    "text": "Munich",
+                    "country": "Germany"
+                }
+            ],
+            Countries: [
+                {
+                    "key": "It",
+                    "text": "Italy"
+                },
+                {
+                    "key": "De",
+                    "text": "Germany"
+                }
+            ]
         }
     }
 }
 </script>
 
 <script setup>
-    import {ref} from "vue";
-    import PartnerModal from "./PartnerModal.vue";
-
-    const modalActive = ref(null);
-    const toggleModal = () => {
-        modalActive.value = !modalActive.value;
-    }
+    defineEmits(["toggle-recipients-modal", "toggle-forwarders-modal"]);
 </script>
 
 <template class="gridLayout">
@@ -141,11 +60,11 @@ export default {
         <!-- Recipient of Goods -->
         <div class="row">
             <div class="inputDiv withButton">
-                <input class="inputItem" type="text" placeholder="Recipient of Goods">
+                <input class="inputItem" type="text" placeholder="Recipient of Goods" :value="selectedRecipientOfGoods">
             </div>
 
             <div class="inputDiv inpButton">
-                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="toggleModal"></i>
+                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="$emit('toggle-recipients-modal')"></i>
             </div>
 
             <div class="inputDiv">
@@ -188,11 +107,11 @@ export default {
         <!-- Forwarder -->
         <div class="row">
             <div class="inputDiv withButton">
-                <input class="inputItem" type="text" placeholder="Forwarder">
+                <input class="inputItem" type="text" placeholder="Forwarder" :value="selectedForwarder">
             </div>
 
             <div class="inputDiv inpButton">
-                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="toggleModal"></i>
+                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="$emit('toggle-forwarders-modal')"></i>
             </div>
 
             <div class="inputDiv">
@@ -229,10 +148,6 @@ export default {
                 </select>
             </div>
         </div>
-
-        <PartnerModal :modalActive="modalActive">
-            <h1>Hello world</h1>
-        </PartnerModal>
     </div>
 </template>
 
@@ -265,9 +180,9 @@ export default {
 }
     
 .inputItem {
-    height: 30px;
+    height: 32px;
     width: 100%;
-    padding: 1rem;
+    padding: 0 10px;
     border-radius: 5px;
 }
 

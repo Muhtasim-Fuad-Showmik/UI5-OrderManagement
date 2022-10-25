@@ -176,29 +176,8 @@ sap.ui.define([
             });
         },
 
-        // _getDefaultTokens: function () {
-        //     var ValueHelpRangeOperation = compLibrary.valuehelpdialog.ValueHelpRangeOperation;
-        //     var oToken1 = new Token({
-		// 		key: "1410866425",
-		// 		text: "Trevor Noah"
-		// 	});
-        //     return [oToken1];
-        // },
-
-        // _onMultiInputValidate: function (oArgs) {
-        //     var sWhitespace = " ",
-		// 		sUnicodeWhitespaceCharacter = "\u00A0"; // Non-breaking whitespace
-
-		// 	if (oArgs.suggestionObject) {
-		// 		var oObject = oArgs.suggestionObject.getBindingContext().getObject(),
-		// 			oToken = new Token(),
-		// 			sOriginalText = oObject.ProductCode.replaceAll((sWhitespace + sWhitespace), (sWhitespace + sUnicodeWhitespaceCharacter));
-
-		// 		oToken.setKey(oObject.customerCode);
-		// 		oToken.setText(oObject.customer + " (" + sOriginalText + ")");
-		// 		return oToken;
-		// 	}
-		// 	return null;
-        // }
+        onValueHelpSelectionChange: function(oEvent) {
+            console.log("Hello value helper dialog");
+        }
     });
 });

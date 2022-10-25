@@ -7,6 +7,7 @@
         title="Customers"
         ok=".onValueHelpOkPress"
         cancel=".onValueHelpCancelPress"
+        onSelectionChange=".onValueHelpSelectionChange"
         tokenDisplayBehaviour="false"
         supportMultiselect="false"
     >

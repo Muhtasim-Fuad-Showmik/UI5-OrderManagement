@@ -1,6 +1,7 @@
 <script>
 export default {
     name: 'LeftPanel',
+    props: ['selectedCustomer'],
     data: function() {
         return {
             orderTypes: [
@@ -29,13 +30,7 @@ export default {
 </script>
 
 <script setup>
-    import {ref} from "vue";
-    import PartnerModal from "./PartnerModal.vue";
-
-    const modalActive = ref(null);
-    const toggleModal = () => {
-        modalActive.value = !modalActive.value;
-    }
+    defineEmits(["toggle-customers-modal"]);
 </script>
 
 <template class="gridLayout">
@@ -48,11 +43,11 @@ export default {
             </div>
 
             <div class="inputDiv withButton">
-                <input class="inputItem" type="text" placeholder="Customer">
+                <input class="inputItem" type="text" placeholder="Customer" :value="selectedCustomer">
             </div>
 
             <div class="inputDiv inpButton">
-                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="toggleModal"></i>
+                <i class="fa-regular fa-window-restore fa-lg modalIcon" @click="$emit('toggle-customers-modal')"></i>
             </div>
 
             <div class="inputDiv">
@@ -85,10 +80,6 @@ export default {
                 </select>
             </div>
         </div>
-
-        <PartnerModal :modalActive="modalActive">
-            <h1>Hello world</h1>
-        </PartnerModal>
     </div>
 </template>
 
