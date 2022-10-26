@@ -4,6 +4,7 @@
     xmlns:fb="sap.ui.comp.filterbar"
 >
     <ValueHelpDialog
+        id="valueHelpDialogId"
         title="Customers"
         ok=".onValueHelpOkPress"
         cancel=".onValueHelpCancelPress"
@@ -11,9 +12,10 @@
         supportMultiselect="false"
         afterOpen=".afterOpen"
     >
-        <filterBar>
+        <filterBar >
             <fb:FilterBar
                 id="panel1CustomersList"
+                advancedMode="true"
                 search=".onFilterBarSearch"
                 isRunningInValueHelpDialog="true">
             </fb:FilterBar>

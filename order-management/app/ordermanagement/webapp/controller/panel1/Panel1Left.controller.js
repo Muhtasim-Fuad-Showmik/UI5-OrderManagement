@@ -60,7 +60,7 @@ sap.ui.define([
                 });
 
                 oDialog.getTableAsync().then(function (oTable) {
-                    let oModel = this.getView().getModel("");
+                    let oModel = this.getView().getModel();
                     oTable.setModel(oModel);
 
                     oTable.attachRowSelectionChange(this.onValueHelpSelectionChange);
@@ -144,10 +144,13 @@ sap.ui.define([
         },
 
         onFilterBarSearch: function () {
-            let sSearchQuery = this._oBasicSearchField.getValue();
-            // var oFilter = new Filter("name", FilterOperator.Contains, sValue);
-            // var oBinding = oEvent.getSource().getBinding("items");
-            // oBinding.filter([oFilter]);
+            // let sSearchQuery = this._oBasicSearchField.getValue();
+            let oBasicSearchField = sap.ui.getCore().byId("__field0");
+            let sSearchQuery = oBasicSearchField.getValue();
+            // console.log("Basic Search Field", this._oBasicSearchField);
+            // console.log("oBasicSearchField: ", oBasicSearchField);
+            // console.log("oBasicSearchField Value: ", oBasicSearchField.getValue());
+            // console.log("Search Query", sSearchQuery);
             
 			let aFilters = [];
 			aFilters.push(new Filter({
@@ -170,34 +173,37 @@ sap.ui.define([
             oVHD.getTableAsync().then(function (oTable) {
                 if(oTable.bindRows) {
                     oTable.getBinding("rows").filter(oFilter);
-                    console.log("rows filter", oFilter);
                 }
                 if(oTable.bindItems) {
                     oTable.getBinding("items").filter(oFilter);
-                    console.log("items filter", oFilter);
                 }
 
                 // This method must be called after binding update of the table
                 oVHD.update();
-
-                console.log("oVHD", oVHD);
             });
         },
 
         onValueHelpSelectionChange: function(iParameter, oEvent) {
+            let oVHD = sap.ui.getCore().byId("__xmlview1--valueHelpDialogId");
+
             // Getting the oTable control created within the customers fragment
-            let oTable = sap.ui.getCore().byId("__dialog0-table");
+            let oTable = sap.ui.getCore().byId("__xmlview1--valueHelpDialogId-table");
 
             // Collection the index of the selected row
             // let selectedIndex = iParameter.getSource().getSelectedIndex();
             let selectedIndex = oTable.getSelectedIndices()[0];
 
-            // Collection of the customer name from the table's selected row
-            let customerName = oTable.getRows()[selectedIndex].getCells()[1].getText();
+            if(selectedIndex !== undefined) {
+                // Collection of the customer name from the table's selected row
+                let customerName = oTable.getRows()[selectedIndex].getCells()[1].getText();
+    
+                // Getting the input field by id and setting its value property
+                let customersInput = sap.ui.getCore().byId("__xmlview1--panel1customerVHD");
+                customersInput.setValue(customerName);
+            }
 
-            // Getting the input field by id and setting its value property
-            let customersInput = sap.ui.getCore().byId("__xmlview1--panel1customerVHD");
-            customersInput.setValue(customerName);
+            // This method must be called after binding update of the table
+            oVHD.update();
         }
     });
 });
