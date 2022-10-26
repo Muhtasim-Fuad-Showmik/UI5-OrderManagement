@@ -69,12 +69,15 @@
 
     .inner {
         align-self: flex-start;
-        max-width: 1200px;
+        max-width: 1300px;
         margin-top: 8rem;
-        padding: 1rem;
+        padding: 30px 50px;
         --tw-bg-opacity: 1;
         background-color: rgb(30 30 30 / var(--tw-bg-opacity));
-        border-radius: 10px;
+        border-radius: 20px;
+        -webkit-box-shadow: -2px -1px 15px 7px rgba(0,0,0,0.5);
+        -moz-box-shadow: -3px -2px 30px 14px rgba(0,0,0,0.425);
+        box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
     }
 
     .btn-primary {

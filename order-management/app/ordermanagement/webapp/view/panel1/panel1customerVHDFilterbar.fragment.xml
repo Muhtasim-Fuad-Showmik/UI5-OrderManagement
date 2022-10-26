@@ -7,9 +7,9 @@
         title="Customers"
         ok=".onValueHelpOkPress"
         cancel=".onValueHelpCancelPress"
-        onSelectionChange=".onValueHelpSelectionChange"
         tokenDisplayBehaviour="false"
         supportMultiselect="false"
+        afterOpen=".afterOpen"
     >
         <filterBar>
             <fb:FilterBar

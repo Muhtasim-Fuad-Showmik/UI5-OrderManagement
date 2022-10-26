@@ -11,6 +11,7 @@
             <!-- Dropdown menu for selecting an order type -->
             <ComboBox
                 width="90%"
+                placeholder="{i18n>OrderTypes}"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
                 selectedKey="-"
                 items="{
@@ -24,11 +25,15 @@
             </ComboBox>
 
             <!-- Value Helper Dialog input for selecting a customer -->
-            <MultiInput
+            <Input
                 id="panel1customerVHD"
                 width="90%"
+                type="Text"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                placeholder="Customer"
+                placeholder="{i18n>Customers}"
+                showValueHelp="true"
+                valueHelpOnly="true"
+
                 valueHelpRequest=".onValueHelpRequested"
                 suggestionRows="{
                     path: 'RecipientTypes',
@@ -79,7 +84,7 @@
                         <Label text="{weeklyCommodity}" />
                     </ColumnListItem>
                 </suggestionRows>
-            </MultiInput>
+            </Input>
 
             <!-- Date Picker for entering the requested delivery date -->
             <DatePicker
@@ -147,7 +152,7 @@
             <ComboBox
                 width="100%"
                 class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd"
-                selectedKey="Tp"
+                placeholder="{i18n>PaymentPolicies}"
                 items="{
                     path: '/PaymentPolicies',
                     sorter: { path: 'title' }

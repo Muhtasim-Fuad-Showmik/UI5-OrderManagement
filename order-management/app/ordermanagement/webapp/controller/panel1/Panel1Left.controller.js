@@ -63,6 +63,8 @@ sap.ui.define([
                     let oModel = this.getView().getModel("");
                     oTable.setModel(oModel);
 
+                    oTable.attachRowSelectionChange(this.onValueHelpSelectionChange);
+
                     // For Desktop and tablet the default table is sap.ui.table.Table
                     if(oTable.bindRows) {
                         // Bind rows to the oDataModel and add columns
@@ -176,8 +178,20 @@ sap.ui.define([
             });
         },
 
-        onValueHelpSelectionChange: function(oEvent) {
-            console.log("Hello value helper dialog");
+        onValueHelpSelectionChange: function(iParameter, oEvent) {
+            // Getting the oTable control created within the customers fragment
+            let oTable = sap.ui.getCore().byId("__dialog0-table");
+
+            // Collection the index of the selected row
+            // let selectedIndex = iParameter.getSource().getSelectedIndex();
+            let selectedIndex = oTable.getSelectedIndices()[0];
+
+            // Collection of the customer name from the table's selected row
+            let customerName = oTable.getRows()[selectedIndex].getCells()[1].getText();
+
+            // Getting the input field by id and setting its value property
+            let customersInput = sap.ui.getCore().byId("__xmlview1--panel1customerVHD");
+            customersInput.setValue(customerName);
         }
     });
 });
