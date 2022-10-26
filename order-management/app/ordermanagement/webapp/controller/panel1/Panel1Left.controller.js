@@ -170,13 +170,17 @@ sap.ui.define([
             oVHD.getTableAsync().then(function (oTable) {
                 if(oTable.bindRows) {
                     oTable.getBinding("rows").filter(oFilter);
+                    console.log("rows filter", oFilter);
                 }
                 if(oTable.bindItems) {
                     oTable.getBinding("items").filter(oFilter);
+                    console.log("items filter", oFilter);
                 }
 
                 // This method must be called after binding update of the table
                 oVHD.update();
+
+                console.log("oVHD", oVHD);
             });
         },
 
