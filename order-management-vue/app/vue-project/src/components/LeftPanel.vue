@@ -4,6 +4,7 @@ export default {
     props: ['selectedCustomer'],
     data: function() {
         return {
+            orderType: '',
             orderTypes: [
                 {
                     code: "Cs",
@@ -37,7 +38,8 @@ export default {
     <div class="dBlock">
         <div class="row">
             <div class="inputDiv">
-                <select class="inputItem" name="orderType" v-model="Cs">
+                <select class="inputItem" v-model="orderType">
+                    <option disabled selected hidden value="">Order Type</option>
                     <option v-for="orderType in orderTypes" :key="orderType.code" :value="orderType.code">{{ orderType.title }}</option>
                 </select>
             </div>

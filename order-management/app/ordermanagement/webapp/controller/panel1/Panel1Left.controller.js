@@ -144,26 +144,28 @@ sap.ui.define([
         },
 
         onFilterBarSearch: function () {
-            console.log("Filter Bar Search");
-            var sSearchQuery = this._oBasicSearchField.getValue();
-
-			var aFilters = [];
+            let sSearchQuery = this._oBasicSearchField.getValue();
+            // var oFilter = new Filter("name", FilterOperator.Contains, sValue);
+            // var oBinding = oEvent.getSource().getBinding("items");
+            // oBinding.filter([oFilter]);
+            
+			let aFilters = [];
 			aFilters.push(new Filter({
 				filters: [
-					new Filter({ path: "code", operator: FilterOperator.Contains, value1: sSearchQuery }),
-					new Filter({ path: "name", operator: FilterOperator.Contains, value1: sSearchQuery })
+					new Filter({ path: "name", operator: FilterOperator.Contains, value1: sSearchQuery }),
+					new Filter({ path: "code", operator: FilterOperator.EQ, value1: sSearchQuery })
 				],
 				and: false
 			}));
 
 			this._filterTable(new Filter({
 				filters: aFilters,
-				and: true
+				and: false
 			}));
         },
 
         _filterTable: function (oFilter) {
-            var oVHD = this._oVHD;
+            let oVHD = this._oVHD;
 
             oVHD.getTableAsync().then(function (oTable) {
                 if(oTable.bindRows) {

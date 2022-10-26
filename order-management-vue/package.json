@@ -13,12 +13,14 @@
     "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
     "@sap/ux-specification": "^1.102.10",
     "@sapui5/ts-types": "^1.92.2",
+    "concurrently": "^7.5.0",
     "eslint": "^7.32.0",
     "sqlite3": "^5.1.2"
   },
   "scripts": {
     "start": "cds watch",
-    "watch-ordermanagement": "cds watch --open ordermanagement/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-ordermanagement": "cds watch --open ordermanagement/webapp/index.html?sap-ui-xx-viewCache=false",
+    "dev": "concurrently --kill-others \"npm start\" \"npm --prefix ./app/vue-project/ run dev\""
   },
   "engines": {
     "node": "^16.15"

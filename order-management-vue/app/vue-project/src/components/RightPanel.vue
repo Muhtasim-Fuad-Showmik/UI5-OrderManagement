@@ -4,6 +4,8 @@ export default {
     props: ['selectedRecipientOfGoods', 'selectedForwarder'],
     data: function() {
         return {
+            recipientCity: '',
+            forwarderCity: '',
             Cities: [
                 {
                     "key": "ItRo",
@@ -36,6 +38,8 @@ export default {
                     "country": "Germany"
                 }
             ],
+            recipientCountry: '',
+            forwarderCountry: '',
             Countries: [
                 {
                     "key": "It",
@@ -90,13 +94,15 @@ export default {
 
         <div class="row">
             <div class="inputDiv">
-                <select class="inputItem" name="recipientCity">
+                <select class="inputItem" v-model="recipientCity">
+                    <option disabled selected hidden value="">Province</option>
                     <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
-                <select class="inputItem" name="recipientCountry">
+                <select class="inputItem" v-model="recipientCountry">
+                    <option disabled selected hidden value="">Country</option>
                     <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
                 </select>
             </div>
@@ -137,13 +143,15 @@ export default {
 
         <div class="row">
             <div class="inputDiv">
-                <select class="inputItem" name="forwarderCity">
+                <select class="inputItem" v-model="forwarderCity">
+                    <option disabled selected hidden value="">City</option>
                     <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
-                <select class="inputItem" name="forwarderCountry">
+                <select class="inputItem" v-model="forwarderCountry">
+                    <option disabled selected hidden value="">Country</option>
                     <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
                 </select>
             </div>
