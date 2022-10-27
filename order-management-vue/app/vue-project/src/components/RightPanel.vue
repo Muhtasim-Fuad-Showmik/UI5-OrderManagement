@@ -6,57 +6,47 @@ export default {
         return {
             recipientCity: '',
             forwarderCity: '',
-            Cities: [
-                {
-                    "key": "ItRo",
-                    "text": "Rome",
-                    "country": "Italy"
-                },
-                {
-                    "key": "ItVn",
-                    "text": "Venice",
-                    "country": "Italy"
-                },
-                {
-                    "key": "ItNp",
-                    "text": "Naples",
-                    "country": "Italy"
-                },
-                {
-                    "key": "DeBn",
-                    "text": "Berlin",
-                    "country": "Germany"
-                },
-                {
-                    "key": "DeHg",
-                    "text": "Hamburg",
-                    "country": "Germany"
-                },
-                {
-                    "key": "DeMc",
-                    "text": "Munich",
-                    "country": "Germany"
-                }
-            ],
             recipientCountry: '',
-            forwarderCountry: '',
-            Countries: [
-                {
-                    "key": "It",
-                    "text": "Italy"
-                },
-                {
-                    "key": "De",
-                    "text": "Germany"
-                }
-            ]
+            forwarderCountry: ''
         }
     }
 }
 </script>
 
 <script setup>
+    // Lirary imports
+    import { ref } from "vue";
+    import axios from "axios";
+
+    // State references
+    const cities = ref([
+        {
+            "key": "Em",
+            "text": "",
+            "country": ""
+        }
+    ]);
+    const countries = ref([
+        {
+            "key": "Em",
+            "text": ""
+        }
+    ]);
+
     defineEmits(["toggle-recipients-modal", "toggle-forwarders-modal"]);
+
+    const getCities = async () => {
+        const result = await axios.get(`http://localhost:4004/consignment/Cities`);
+        cities.value = result.data.value;
+    }
+
+    const getCountries = async () => {
+        const result = await axios.get(`http://localhost:4004/consignment/Countries`);
+        countries.value = result.data.value;
+    }
+
+    getCities();
+    getCountries();
 </script>
 
 <template class="gridLayout">
@@ -96,14 +86,14 @@ export default {
             <div class="inputDiv">
                 <select class="inputItem" v-model="recipientCity">
                     <option disabled selected hidden value="">Province</option>
-                    <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
+                    <option v-for="city in cities" :key="city.code" :value="city.code">{{city.title}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" v-model="recipientCountry">
                     <option disabled selected hidden value="">Country</option>
-                    <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
+                    <option v-for="country in countries" :key="country.code" :value="country.code">{{country.name}}</option>
                 </select>
             </div>
         </div>
@@ -144,15 +134,15 @@ export default {
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" v-model="forwarderCity">
-                    <option disabled selected hidden value="">City</option>
-                    <option v-for="city in Cities" :key="city.key" :value="city.key">{{city.text}}</option>
+                    <option disabled selected hidden value="">Province</option>
+                    <option v-for="city in cities" :key="city.code" :value="city.code">{{city.title}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" v-model="forwarderCountry">
                     <option disabled selected hidden value="">Country</option>
-                    <option v-for="country in Countries" :key="country.key" :value="country.key">{{country.text}}</option>
+                    <option v-for="country in countries" :key="country.code" :value="country.code">{{country.name}}</option>
                 </select>
             </div>
         </div>
