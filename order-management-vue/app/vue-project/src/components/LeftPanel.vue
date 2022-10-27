@@ -5,33 +5,45 @@ export default {
     data: function() {
         return {
             orderType: '',
-            orderTypes: [
-                {
-                    code: "Cs",
-                    title: "Casual",
-                },
-                {
-                    code: "Ex",
-                    title: "Express"
-                }
-            ],
-            paymentPolicies: [
-                {
-                    code: "Cp",
-                    title: "Conditions of Payment"
-                },
-                {
-                    code : "Tp",
-                    title : "Terms of Payment"
-                }
-            ]
+            paymentPolicy: ''
         }
     }
 }
 </script>
 
 <script setup>
+    // Library imports
+    import { ref } from "vue";
+    import axios from "axios";
+
+    // State references
+    const orderTypes = ref([
+        {
+            code: "Em",
+            title: "Empty",
+        }
+    ]);
+    const paymentPolicies = ref([
+        {
+            code: "Em",
+            title: "Empty"
+        }
+    ]);
+
     defineEmits(["toggle-customers-modal"]);
+
+    const getOrderTypes = async () => {
+        const result = await axios.get(`http://localhost:4004/order/OrderTypes`);
+        orderTypes.value = result.data.value;
+    };
+
+    const getPaymentPolicies = async () => {
+        const result = await axios.get(`http://localhost:4004/order/PaymentPolicies`);
+        paymentPolicies.value = result.data.value;
+    }
+
+    getOrderTypes();
+    getPaymentPolicies();
 </script>
 
 <template class="gridLayout">
@@ -77,7 +89,8 @@ export default {
             </div>
 
             <div class="inputDiv">
-                <select class="inputItem" name="orderType">
+                <select class="inputItem" v-model="paymentPolicy">
+                    <option disabled selected hidden value="">Payment Policy</option>
                     <option v-for="paymentPolicy in paymentPolicies" :key="paymentPolicy.code" :value="paymentPolicy.code">{{ paymentPolicy.title }}</option>
                 </select>
             </div>
