@@ -62,7 +62,7 @@
         padding-left: 2rem;
         padding-right: 2rem;
         width: 100%;
-        height: 100vh;
+        max-height: 100vh;
         --tw-bg-opacity: 0.3;
         background-color: rgb(0 0 0 / var(--tw-bg-opacity));
     }

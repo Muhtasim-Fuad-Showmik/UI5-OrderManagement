@@ -21,7 +21,7 @@
                     <td>{{ customer.name }}</td>
                     <td>{{ customer.province }}</td>
                     <td>{{ customer.city }}</td>
-                    <td>{{ customer.country }}</td>
+                    <td>{{ customer.country.name }}</td>
                     <td>{{ customer.piva }}</td>
                     <td>{{ customer.commercialOrg }}</td>
                     <td>{{ customer.distributionChannel }}</td>
@@ -47,7 +47,9 @@
                     name: 'Customer',
                     province: 'pv',
                     city: 'City',
-                    country: 'Country',
+                    country: {
+                        name: 'Country'
+                    },
                     piva: 'PIVA',
                     commercialOrg: 'Commercial Org',
                     distributionChannel: 'Distribution Channel',

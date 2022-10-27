@@ -19,7 +19,7 @@
                     <td>{{ partner.name }}</td>
                     <td>{{ partner.province }}</td>
                     <td>{{ partner.city }}</td>
-                    <td>{{ partner.country }}</td>
+                    <td>{{ partner.country.name }}</td>
                     <td>{{ partner.address }}</td>
                     <td>{{ partner.postalCode }}</td>
                 </tr>
@@ -43,7 +43,9 @@
 					name: "Name",
 					province: "PV",
 					city: "City",
-					country: "Country",
+					country: {
+                        name: "Country"
+                    },
 					address: "Address",
 					postalCode: "00000"
                 }

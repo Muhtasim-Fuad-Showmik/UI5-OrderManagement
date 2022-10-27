@@ -3,134 +3,13 @@ export default {
 	name: 'App',
 	data: function () {
 		return {
-			customers: [
-				{
-					code: "1410866423",
-					name: "Johny Depp",
-					province: "TN",
-					city: " Trento",
-					country: "Italy",
-					piva: "0397553088",
-					commercialOrg: "Z001 - Derga",
-					distributionChannel: "Z1 - channel",
-					weeklyCommodity: "ZZ - Division"
-				},
-				{
-					code: "1410866424",
-					name: "Brad Pitt",
-					province: "VN",
-					city: " Venice",
-					country: "Italy",
-					piva: "0397553089",
-					commercialOrg: "Z002 - Derga",
-					distributionChannel: "Z2 - channel",
-					weeklyCommodity: "ZX - Division"
-				},
-				{
-					code: "1410866425",
-					name: "Trevor Noah",
-					province: "BN",
-					city: " Berlin",
-					country: "Germany",
-					piva: "0397553090",
-					commercialOrg: "Z001 - Derga",
-					distributionChannel: "Z1 - channel",
-					weeklyCommodity: "ZX - Division"
-				},
-				{
-					code: "1410866426",
-					name: "Edris Alba",
-					province: "HG",
-					city: " Hamburg",
-					country: "Germany",
-					piva: "0397553091",
-					commercialOrg: "Z002 - Derga",
-					distributionChannel: "Z3 - channel",
-					weeklyCommodity: "ZZ - Division"
-				}
-			],
-			consigneesOfGoods: [
-				{
-					code: "1410866423",
-					name: "Tom Holland",
-					province: "TN",
-					city: "Trento",
-					country: "Italy",
-					address: "Via Frischin 3",
-					postalCode: "39100"
-				},
-				{
-					code: "1410866424",
-					name: "Drew Barrymoore",
-					province: "NY",
-					city: "New York",
-					country: "USA",
-					address: "11th, Broadway Street",
-					postalCode: "32145"
-				},
-				{
-					code: "1410866425",
-					name: "Elisha Cuthbert",
-					province: "LN",
-					city: "London",
-					country: "Great Britain",
-					address: "21st Manchester Avenue",
-					postalCode: "53123"
-				},
-				{
-					code: "1410866426",
-					name: "Aston Kutcher",
-					province: "SN",
-					city: "Sydney",
-					country: "Australia",
-					address: "17/2, Candace Road",
-					postalCode: "71382"
-				}
-        	],
-			forwarders: [
-				{
-					code: "1410866623",
-					name: "Rosamund Pike",
-					province: "TN",
-					city: "Trento",
-					country: "Italy",
-					address: "Via Frischin 3",
-					postalCode: "39101"
-				},
-				{
-					code: "1410866624",
-					name: "Jason Stratham",
-					province: "BN",
-					city: "Berlin",
-					country: "Germany",
-					address: "Mohrenstrasse 37",
-					postalCode: "10117"
-				},
-				{
-					code: "1410866625",
-					name: "Edward Snowden",
-					province: "MW",
-					city: "Moscow",
-					country: "Russia",
-					address: "Prospekt Tverskaya 9",
-					postalCode: "10309"
-				},
-				{
-					code: "1410866626",
-					name: "Chris Evans",
-					province: "NY",
-					city: "New York",
-					country: "USA",
-					address: "13th Yorkshire Street",
-					postalCode: "39420"
-				}
-			]
 		}
 	}
 }
 </script>
 
 <script setup>
+//  Library Imports
 import HeaderPanel from './components/HeaderPanel.vue'
 import LeftPanel from './components/LeftPanel.vue'
 import RightPanel from './components/RightPanel.vue'
@@ -139,12 +18,38 @@ import CustomModal from "./components/CustomModal.vue";
 import PartnersTable from './components/PartnersTable.vue';
 import CustomersTable from './components/CustomersTable.vue';
 import { ref } from "vue";
+import axios from "axios";
+
+// State references
 const customerModalActive = ref(null);
 const recipientModalActive = ref(null);
 const forwarderModalActive = ref(null);
 const selectedCustomer = ref(null);
 const selectedRecipientOfGoods = ref(null);
 const selectedForwarder = ref(null);
+
+// Main data sources
+const consigneesOfGoods = ref([
+	{
+		code: "Em",
+		name: ""
+	}
+]);
+const customers = ref([
+	{
+		code: "Em",
+		name: ""
+	}
+]);
+const forwarders = ref([
+	{
+		code: "Em",
+		name: ""
+	}
+]);
+
+
+// Custom functions
 const toggleCustomersModal = () => {
 	customerModalActive.value = !customerModalActive.value;
 }
@@ -168,6 +73,24 @@ const selectPartner = (partnerName, partnerType) => {
 		toggleForwardersModal();
 	};
 }
+
+// Data getter functions
+const getCustomers = async () => {
+	const result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country`);
+    customers.value = result.data.value;
+};
+const getConsignees = async () => {
+	const result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country`);
+    consigneesOfGoods.value = result.data.value;
+};
+const getForwarders = async () => {
+	const result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country`);
+    forwarders.value = result.data.value;
+};
+
+getCustomers();
+getConsignees();
+getForwarders();
 </script>
 
 <template>
