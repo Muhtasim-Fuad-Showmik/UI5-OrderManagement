@@ -22,10 +22,18 @@ import axios from "axios";
 
 // State references
 const customerModalActive = ref(null);
-const recipientModalActive = ref(null);
-const forwarderModalActive = ref(null);
+const customerNoData = ref(null);
+const customersearched = ref(null);
 const selectedCustomer = ref(null);
+
+const recipientModalActive = ref(null);
+const recipientNoData = ref(null);
+const recipientsearched = ref(null);
 const selectedRecipientOfGoods = ref(null);
+
+const forwarderModalActive = ref(null);
+const forwarderNoData = ref(null);
+const forwardersearched = ref(null);
 const selectedForwarder = ref(null);
 
 // Main data sources
@@ -118,13 +126,31 @@ getForwarders();
 					:selectedForwarder="selectedForwarder" />
 			</div>
 			<CustomModal :modalActive="customerModalActive" @close-modal="toggleCustomersModal">
-				<CustomersTable :customers="customers" :userType="'Customers'" @select-customer="selectCustomer"></CustomersTable>
+				<CustomersTable 
+					:customers="customers" 
+					:userType="'Customers'"
+					:noData="customerNoData" 
+					:searched="customersearched"
+					@select-customer="selectCustomer"
+				></CustomersTable>
 			</CustomModal>
 			<CustomModal :modalActive="recipientModalActive" @close-modal="toggleRecipientsModal">
-				<PartnersTable :partners="consigneesOfGoods" :userType="'Recipients'" @select-partner="selectPartner"></PartnersTable>
+				<PartnersTable 
+					:partners="consigneesOfGoods" 
+					:userType="'Recipients'"
+					:noData="recipientNoData" 
+					:searched="recipientsearched"
+					@select-partner="selectPartner"
+				></PartnersTable>
 			</CustomModal>
 			<CustomModal :modalActive="forwarderModalActive" @close-modal="toggleForwardersModal">
-				<PartnersTable :partners="forwarders" :userType="'Forwarders'" @select-partner="selectPartner"></PartnersTable>
+				<PartnersTable 
+					:partners="forwarders" 
+					:userType="'Forwarders'" 
+					:noData="forwarderNoData" 
+					:searched="forwardersearched"
+					@select-partner="selectPartner"
+				></PartnersTable>
 			</CustomModal>
 		</main>
 	</div>

@@ -8,7 +8,7 @@ entity Cities {
 }
 
 entity Partners {
-    key code: Integer;
+    key code: String;
     name: String;
     province: String;
     city: String;
@@ -29,7 +29,7 @@ entity PaymentPolicies {
 }
 
 entity RecipientTypes {
-    key code            : Integer;
+    key code            : String;
     name                : String;
     province            : String;
     city                : String;

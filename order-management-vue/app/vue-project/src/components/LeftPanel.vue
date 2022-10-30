@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'LeftPanel',
-    props: ['selectedCustomer'],
+    props: ['selectedCustomer', 'noData', 'searching'],
     data: function() {
         return {
             orderType: '',

@@ -1,7 +1,15 @@
 <template>
     <div>
         <h2>Select {{ userType }}</h2>
-        <table class="classic-table" cellspacing="0">
+
+        <!-- Search Bar -->
+        <div class="searchPanel">
+            <input class="searchInput" type="text" v-model="search" :placeholder="`Search ${userType}`" />
+            <img class="searchCross" src="../assets/xmark-solid.svg" alt="" v-if="searched">
+        </div>
+
+        <!-- Main Table -->
+        <table v-if="!noData" class="classic-table" cellspacing="0">
             <thead>
                 <tr>
                     <th>Partner Code</th>
@@ -25,6 +33,10 @@
                 </tr>
             </tbody>
         </table>
+
+        <div v-else>
+            No data found!
+        </div>
     </div>
 </template>
 
@@ -50,6 +62,14 @@
 					postalCode: "00000"
                 }
             ]
+        },
+        noData: {
+            type: Boolean,
+            default: false
+        },
+        searched: {
+            type: Boolean,
+            default: false
         }
     });
 </script>
