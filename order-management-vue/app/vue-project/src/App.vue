@@ -60,13 +60,24 @@ const forwarders = ref([
 // Custom functions
 const toggleCustomersModal = () => {
 	customerModalActive.value = !customerModalActive.value;
+	if(customerModalActive.value){
+		getCustomers();
+	}
 }
 const toggleRecipientsModal = () => {
 	recipientModalActive.value = !recipientModalActive.value;
+	if(recipientModalActive.value){
+		getConsignees();
+	}
 }
 const toggleForwardersModal = () => {
 	forwarderModalActive.value = !forwarderModalActive.value;
+	if(forwarderModalActive.value){
+		getForwarders();
+	}
 }
+
+// Setting up Table Select Dialog selections
 const selectCustomer = (customerName) => {
 	selectedCustomer.value = customerName;
 	toggleCustomersModal();
@@ -79,21 +90,60 @@ const selectPartner = (partnerName, partnerType) => {
 	if(partnerType === "Forwarders") {
 		selectedForwarder.value = partnerName;
 		toggleForwardersModal();
-	};
+	}
 }
 
 // Data getter functions
-const getCustomers = async () => {
-	const result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country`);
-    customers.value = result.data.value;
+const getCustomers = async (searchTerm) => {
+	let result = null;
+	if(typeof searchTerm !== "undefined") {
+		customersearched.value = true;
+		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country&$search=${searchTerm}`);
+	} else {
+		customersearched.value = false;
+		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country`);
+	}
+	
+	if(result.data.value.length === 0){
+		customerNoData.value = true;
+	} else {
+		customerNoData.value = false;
+		customers.value = result.data.value;
+	}
 };
-const getConsignees = async () => {
-	const result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country`);
-    consigneesOfGoods.value = result.data.value;
+const getConsignees = async (searchTerm) => {
+	let result = null;
+	if(typeof searchTerm !== "undefined") {
+		recipientsearched.value = true;
+		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country&$search=${searchTerm}`);
+	} else {
+		recipientsearched.value = false;
+		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country`);
+	}
+	
+	if(result.data.value.length === 0){
+		recipientNoData.value = true;
+	} else {
+		recipientNoData.value = false;
+		consigneesOfGoods.value = result.data.value;
+	}
 };
-const getForwarders = async () => {
-	const result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country`);
-    forwarders.value = result.data.value;
+const getForwarders = async (searchTerm) => {
+	let result = null;
+	if(typeof searchTerm !== "undefined") {
+		forwardersearched.value = true;
+		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country&$search=${searchTerm}`);
+	} else {
+		forwardersearched.value = false;
+		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country`);
+	}
+	
+	if(result.data.value.length === 0){
+		forwarderNoData.value = true;
+	} else {
+		forwarderNoData.value = false;
+		forwarders.value = result.data.value;
+	}
 };
 
 getCustomers();
@@ -132,6 +182,8 @@ getForwarders();
 					:noData="customerNoData" 
 					:searched="customersearched"
 					@select-customer="selectCustomer"
+					@search-customer="getCustomers"
+					@cancel-search="getCustomers"
 				></CustomersTable>
 			</CustomModal>
 			<CustomModal :modalActive="recipientModalActive" @close-modal="toggleRecipientsModal">
@@ -141,6 +193,8 @@ getForwarders();
 					:noData="recipientNoData" 
 					:searched="recipientsearched"
 					@select-partner="selectPartner"
+					@search-partner="getConsignees"
+					@cancel-search="getConsignees"
 				></PartnersTable>
 			</CustomModal>
 			<CustomModal :modalActive="forwarderModalActive" @close-modal="toggleForwardersModal">
@@ -150,6 +204,8 @@ getForwarders();
 					:noData="forwarderNoData" 
 					:searched="forwardersearched"
 					@select-partner="selectPartner"
+					@search-partner="getForwarders"
+					@cancel-search="getForwarders"
 				></PartnersTable>
 			</CustomModal>
 		</main>

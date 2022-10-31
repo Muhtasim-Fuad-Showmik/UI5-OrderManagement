@@ -6,7 +6,6 @@
 	"recommendations": [
 		"SAPSE.vscode-cds",
 		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
 		"mechatroner.rainbow-csv",
 		"humao.rest-client",
 		"alexcvzz.vscode-sqlite",

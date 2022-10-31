@@ -4,12 +4,24 @@
 
         <!-- Search Bar -->
         <div class="searchPanel">
-            <input class="searchInput" type="text" v-model="search" :placeholder="`Search ${userType}`" />
-            <img class="searchCross" src="../assets/xmark-solid.svg" alt="" v-if="searched">
+            <input 
+                class="searchInput" 
+                type="text" 
+                v-model="search" 
+                :placeholder="`Search ${userType}`" 
+                @keyup.enter="$emit('search-partner', search)"
+                />
+            <img 
+                class="searchCross" 
+                src="../assets/xmark-solid.svg" 
+                alt="" 
+                v-if="searched"
+                @click="cancelSearch"    
+            >
         </div>
 
         <!-- Main Table -->
-        <table v-if="!noData" class="classic-table" cellspacing="0">
+        <table v-if="!noData" class="classic-table w-892" cellspacing="0">
             <thead>
                 <tr>
                     <th>Partner Code</th>
@@ -22,7 +34,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="partner in partners" :key="partner.code" @click="$emit('select-partner', partner.name, userType)">
+                <tr 
+                    v-for="partner in partners" 
+                    :key="partner.code" 
+                    @click="$emit('select-partner', partner.name, userType)"
+                >
                     <td>{{ partner.code }}</td>
                     <td>{{ partner.name }}</td>
                     <td>{{ partner.province }}</td>
@@ -34,14 +50,18 @@
             </tbody>
         </table>
 
-        <div v-else>
+        <div v-else class="w-892">
             No data found!
         </div>
     </div>
 </template>
 
 <script setup>
-    defineEmits(['select-partner']);
+    import { ref } from "vue";
+
+    const search = ref(null);
+
+    const emit = defineEmits(['select-partner', 'search-partner', 'cancel-search']);
     defineProps({
         userType: {
             type: String,
@@ -72,7 +92,15 @@
             default: false
         }
     });
+
+    const cancelSearch = () => {
+        search.value = "";
+        emit('cancel-search');
+    }
 </script>
 
 <style scoped>
+.w-892 {
+    width: 892px;
+}
 </style>
