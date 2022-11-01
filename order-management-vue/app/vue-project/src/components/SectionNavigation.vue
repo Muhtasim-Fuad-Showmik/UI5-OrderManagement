@@ -3,12 +3,12 @@
 
 <template>
     <div class="hFlex">
-        <button class="navItem green">Header</button>
-        <button class="navItem">Locations</button>
-        <button class="navItem">Promo Vistex</button>
-        <button class="navItem">Tested Pricing</button>
-        <button class="navItem">Partner</button>
-        <button class="navItem">Note</button>
+        <button class="navItem green">{{ $t('nav.header') }}</button>
+        <button class="navItem">{{ $t('nav.locations') }}</button>
+        <button class="navItem">{{ $t('nav.promoVistex') }}</button>
+        <button class="navItem">{{ $t('nav.testedPricing') }}</button>
+        <button class="navItem">{{ $t('nav.partner') }}</button>
+        <button class="navItem">{{ $t('nav.note') }}</button>
     </div>
 </template>
 

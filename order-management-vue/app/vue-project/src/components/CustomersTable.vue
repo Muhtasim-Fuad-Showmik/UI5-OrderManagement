@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Select {{ userType }}</h2>
+    <h2 v-if="userType === 'Customers'">{{ $t('common.selectSomeone', { someone: $tc(`common.customer`, 2) }) }}</h2>
 
     <!-- Search Bar -->
     <div class="searchPanel">
@@ -8,7 +8,7 @@
           class="searchInput" 
           type="text" 
           v-model="search" 
-          :placeholder="`Search ${userType}`" 
+          :placeholder="$t('common.searchSomeone', { someone: $tc(`common.customer`, 2) })" 
           @keyup.enter="$emit('search-customer', search)"
           />
         <img 
@@ -24,15 +24,15 @@
     <table v-if="!noData" class="classic-table w-892" cellspacing="0">
       <thead>
         <tr>
-          <th>Customer Code</th>
-          <th>Customer Name</th>
-          <th>Province</th>
-          <th>City</th>
-          <th>Country</th>
-          <th>PIVA</th>
-          <th>Commercial Organization</th>
-          <th>Distribution Channel</th>
-          <th>Weekly Commodities</th>
+          <th>{{$t('common.customerCode')}}</th>
+          <th>{{$t('common.customerName')}}</th>
+          <th>{{$t('common.province')}}</th>
+          <th>{{$t('common.city')}}</th>
+          <th>{{$t('common.country')}}</th>
+          <th>{{$t('common.piva')}}</th>
+          <th>{{$t('common.commercialOrganization')}}</th>
+          <th>{{$t('common.distributionChannel')}}</th>
+          <th>{{$tc('common.weeklyCommodity', 2)}}</th>
         </tr>
       </thead>
       <tbody>

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h2>Select {{ userType }}</h2>
+        <h2 v-if="userType === 'Recipients'">{{ $t('common.selectSomeone', { someone: $tc(`common.recipient`, 2) }) }}</h2>
+        <h2 v-if="userType === 'Forwarders'">{{ $t('common.selectSomeone', { someone: $tc(`common.forwarder`, 2) }) }}</h2>
 
         <!-- Search Bar -->
         <div class="searchPanel">
@@ -8,7 +9,10 @@
                 class="searchInput" 
                 type="text" 
                 v-model="search" 
-                :placeholder="`Search ${userType}`" 
+                :placeholder="
+                    userType === 'Recipients' ?
+                    $t('common.searchSomeone', { someone: $tc(`common.recipient`, 2) }) :
+                    $t('common.searchSomeone', { someone: $tc(`common.forwarder`, 2) })" 
                 @keyup.enter="$emit('search-partner', search)"
                 />
             <img 
@@ -24,13 +28,13 @@
         <table v-if="!noData" class="classic-table w-892" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Partner Code</th>
-                    <th>Partner Name</th>
-                    <th>Province</th>
-                    <th>City</th>
-                    <th>Country</th>
-                    <th>Address</th>
-                    <th>Postal Code</th>
+                    <th>{{$t('common.partnerCode')}}</th>
+                    <th>{{$t('common.partnerName')}}</th>
+                    <th>{{$t('common.province')}}</th>
+                    <th>{{$t('common.city')}}</th>
+                    <th>{{$t('common.country')}}</th>
+                    <th>{{$t('common.address')}}</th>
+                    <th>{{$t('common.postalCode')}}</th>
                 </tr>
             </thead>
             <tbody>

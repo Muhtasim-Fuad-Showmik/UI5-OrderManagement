@@ -54,7 +54,7 @@ export default {
         <!-- Recipient of Goods -->
         <div class="row">
             <div class="inputDiv withButton">
-                <input class="inputItem" type="text" placeholder="Recipient of Goods" :value="selectedRecipientOfGoods">
+                <input class="inputItem" type="text" :placeholder="$t('common.recipientOfGoods')" :value="selectedRecipientOfGoods">
             </div>
 
             <div class="inputDiv inpButton">
@@ -62,37 +62,37 @@ export default {
             </div>
 
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Name of the consignee of goods">
+                <input class="inputItem" type="text" :placeholder="$t('common.nameOfTheConsigneeOfGoods')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Via/Marketplace">
+                <input class="inputItem" type="text" :placeholder="$t('common.viaMarketplace')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Postal Code">
+                <input class="inputItem" type="text" :placeholder="$t('common.postalCode')">
             </div>
 
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="City">
+                <input class="inputItem" type="text" :placeholder="$t('common.city')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" v-model="recipientCity">
-                    <option disabled selected hidden value="">Province</option>
+                    <option disabled selected hidden value="">{{$t('common.province')}}</option>
                     <option v-for="city in cities" :key="city.code" :value="city.code">{{city.title}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" v-model="recipientCountry">
-                    <option disabled selected hidden value="">Country</option>
+                    <option disabled selected hidden value="">{{$t('common.country')}}</option>
                     <option v-for="country in countries" :key="country.code" :value="country.code">{{country.name}}</option>
                 </select>
             </div>
@@ -103,7 +103,7 @@ export default {
         <!-- Forwarder -->
         <div class="row">
             <div class="inputDiv withButton">
-                <input class="inputItem" type="text" placeholder="Forwarder" :value="selectedForwarder">
+                <input class="inputItem" type="text" :placeholder="$t('common.forwarder')" :value="selectedForwarder">
             </div>
 
             <div class="inputDiv inpButton">
@@ -111,37 +111,37 @@ export default {
             </div>
 
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Forwarder Name">
+                <input class="inputItem" type="text" :placeholder="$t('common.forwarderName')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Via/Marketplace">
+                <input class="inputItem" type="text" :placeholder="$t('common.viaMarketplace')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="Postal Code">
+                <input class="inputItem" type="text" :placeholder="$t('common.postalCode')">
             </div>
 
             <div class="inputDiv">
-                <input class="inputItem" type="text" placeholder="City">
+                <input class="inputItem" type="text" :placeholder="$t('common.city')">
             </div>
         </div>
 
         <div class="row">
             <div class="inputDiv">
                 <select class="inputItem" v-model="forwarderCity">
-                    <option disabled selected hidden value="">Province</option>
+                    <option disabled selected hidden value="">{{$t('common.province')}}</option>
                     <option v-for="city in cities" :key="city.code" :value="city.code">{{city.title}}</option>
                 </select>
             </div>
 
             <div class="inputDiv">
                 <select class="inputItem" v-model="forwarderCountry">
-                    <option disabled selected hidden value="">Country</option>
+                    <option disabled selected hidden value="">{{$t('common.country')}}</option>
                     <option v-for="country in countries" :key="country.code" :value="country.code">{{country.name}}</option>
                 </select>
             </div>

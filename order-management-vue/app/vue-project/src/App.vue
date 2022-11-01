@@ -155,7 +155,7 @@ getForwarders();
 	<div>
 		<header>
 			<div class="wrapper">
-				<HeaderPanel msg="Order Management" />
+				<HeaderPanel :msg="$t('header.orderManagement')" />
 			</div>
 		</header>
 		<main>
