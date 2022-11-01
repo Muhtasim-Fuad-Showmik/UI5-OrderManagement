@@ -144,16 +144,6 @@ const i18n = createI18n ({
 export default {
     data() {
         return {
-            orderTypes: [
-                {
-                    code: "Cs",
-                    title: "Casual",
-                },
-                {
-                    "code": "Ex",
-                    "title": "Express"
-                }
-            ]
         }
     }
 }

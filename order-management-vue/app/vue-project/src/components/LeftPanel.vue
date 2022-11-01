@@ -16,6 +16,11 @@ export default {
     import { ref } from "vue";
     import axios from "axios";
 
+    // For localized backend
+    const headers = {
+        'Accept-Language': 'it'
+    };
+
     // State references
     const orderTypes = ref([
         {
@@ -33,12 +38,12 @@ export default {
     defineEmits(["toggle-customers-modal"]);
 
     const getOrderTypes = async () => {
-        const result = await axios.get(`http://localhost:4004/order/OrderTypes`);
+        const result = await axios.get(`http://localhost:4004/order/OrderTypes`, {headers});
         orderTypes.value = result.data.value;
     };
 
     const getPaymentPolicies = async () => {
-        const result = await axios.get(`http://localhost:4004/order/PaymentPolicies`);
+        const result = await axios.get(`http://localhost:4004/order/PaymentPolicies`, {headers});
         paymentPolicies.value = result.data.value;
     }
 

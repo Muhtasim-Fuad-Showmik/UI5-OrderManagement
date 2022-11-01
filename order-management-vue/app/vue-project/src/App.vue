@@ -20,6 +20,11 @@ import CustomersTable from './components/CustomersTable.vue';
 import { ref } from "vue";
 import axios from "axios";
 
+// For localized backend
+const headers = {
+	'Accept-Language': 'it'
+};
+
 // State references
 const customerModalActive = ref(null);
 const customerNoData = ref(null);
@@ -96,12 +101,14 @@ const selectPartner = (partnerName, partnerType) => {
 // Data getter functions
 const getCustomers = async (searchTerm) => {
 	let result = null;
+	console.log('i18n:');
+
 	if(typeof searchTerm !== "undefined") {
 		customersearched.value = true;
-		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country&$search=${searchTerm}`);
+		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country&$search=${searchTerm}`, {headers});
 	} else {
 		customersearched.value = false;
-		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country`);
+		result = await axios.get(`http://localhost:4004/order/RecipientTypes?$expand=country`, {headers});
 	}
 	
 	if(result.data.value.length === 0){
@@ -115,10 +122,10 @@ const getConsignees = async (searchTerm) => {
 	let result = null;
 	if(typeof searchTerm !== "undefined") {
 		recipientsearched.value = true;
-		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country&$search=${searchTerm}`);
+		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country&$search=${searchTerm}`, {headers});
 	} else {
 		recipientsearched.value = false;
-		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country`);
+		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country`, {headers});
 	}
 	
 	if(result.data.value.length === 0){
@@ -132,10 +139,10 @@ const getForwarders = async (searchTerm) => {
 	let result = null;
 	if(typeof searchTerm !== "undefined") {
 		forwardersearched.value = true;
-		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country&$search=${searchTerm}`);
+		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country&$search=${searchTerm}`, {headers});
 	} else {
 		forwardersearched.value = false;
-		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country`);
+		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country`, {headers});
 	}
 	
 	if(result.data.value.length === 0){

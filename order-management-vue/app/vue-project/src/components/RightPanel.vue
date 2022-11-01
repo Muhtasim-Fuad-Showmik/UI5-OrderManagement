@@ -18,6 +18,11 @@ export default {
     import { ref } from "vue";
     import axios from "axios";
 
+    // For localized backend
+    const headers = {
+        'Accept-Language': 'it'
+    };
+
     // State references
     const cities = ref([
         {
@@ -41,7 +46,7 @@ export default {
     }
 
     const getCountries = async () => {
-        const result = await axios.get(`http://localhost:4004/consignment/Countries`);
+        const result = await axios.get(`http://localhost:4004/consignment/Countries`, {headers});
         countries.value = result.data.value;
     }
 
