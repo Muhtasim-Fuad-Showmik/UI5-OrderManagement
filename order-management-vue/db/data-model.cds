@@ -8,7 +8,7 @@ entity Cities {
 }
 
 entity Partners {
-    key code: String;
+    key code: Integer;
     name: String;
     province: String;
     city: String;
