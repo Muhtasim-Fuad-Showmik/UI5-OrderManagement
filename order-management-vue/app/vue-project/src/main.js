@@ -149,5 +149,15 @@ export default {
 }
 
 const app = createApp(App);
+
+//  For solving the CORS Issue regarding Accept-Language
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//     next();
+// });
+
+// Adding vue-i18n to the project
 app.use(i18n);
 app.mount('#app');

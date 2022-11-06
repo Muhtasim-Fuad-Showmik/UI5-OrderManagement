@@ -1,21 +1,6 @@
-<script>
-export default {
-    name: 'RightPanel',
-    props: ['selectedRecipientOfGoods', 'selectedForwarder'],
-    data: function() {
-        return {
-            recipientCity: '',
-            forwarderCity: '',
-            recipientCountry: '',
-            forwarderCountry: ''
-        }
-    }
-}
-</script>
-
 <script setup>
     // Lirary imports
-    import { ref } from "vue";
+    import { ref, watch } from "vue";
     import axios from "axios";
 
     // For localized backend
@@ -24,6 +9,10 @@ export default {
     };
 
     // State references
+    const recipientCity = ref('');
+    const forwarderCity = ref('');
+    const recipientCountry = ref('');
+    const forwarderCountry = ref('');
     const cities = ref([
         {
             "key": "Em",
@@ -38,14 +27,35 @@ export default {
         }
     ]);
 
+    const props = defineProps({
+        selectedRecipientOfGoods: {
+            type: Object
+        },
+        selectedForwarder: {
+            type: Object
+        },
+        locale: {
+            type: String,
+            default: "it"
+        }
+    });
     defineEmits(["toggle-recipients-modal", "toggle-forwarders-modal"]);
 
+    watch(() => props.locale, async () => {
+        getCities();
+        getCountries();
+    });
+
     const getCities = async () => {
+        headers['Accept-Language'] = props.locale;
+
         const result = await axios.get(`http://localhost:4004/consignment/Cities`);
         cities.value = result.data.value;
     }
 
     const getCountries = async () => {
+        headers['Accept-Language'] = props.locale;
+
         const result = await axios.get(`http://localhost:4004/consignment/Countries`, {headers});
         countries.value = result.data.value;
     }

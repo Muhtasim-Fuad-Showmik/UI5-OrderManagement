@@ -72,22 +72,7 @@ defineProps({
     default: "Customers",
   },
   customers: {
-    type: Array,
-    default: [
-      {
-        code: 0,
-        name: "Customer",
-        province: "pv",
-        city: "City",
-        country: {
-          name: "Country",
-        },
-        piva: "PIVA",
-        commercialOrg: "Commercial Org",
-        distributionChannel: "Distribution Channel",
-        weeklyCommodity: "Weekly Commodity",
-      },
-    ],
+    type: Array
   },
   noData: {
     type: Boolean,

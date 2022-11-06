@@ -21,8 +21,9 @@ import { ref } from "vue";
 import axios from "axios";
 
 // For localized backend
+const langLocale = ref('it');
 const headers = {
-	'Accept-Language': 'it'
+	'Accept-Language': 'en'
 };
 
 // State references
@@ -61,6 +62,14 @@ const forwarders = ref([
 	}
 ]);
 
+// Change language locale for the entire application
+const setNewLocale = (newLocale) => {
+	langLocale.value = newLocale;
+
+	getCustomers();
+	getConsignees();
+	getForwarders();
+}
 
 // Custom functions
 const toggleCustomersModal = () => {
@@ -101,7 +110,7 @@ const selectPartner = (partnerName, partnerType) => {
 // Data getter functions
 const getCustomers = async (searchTerm) => {
 	let result = null;
-	console.log('i18n:');
+	headers['Accept-Language'] = langLocale.value;
 
 	if(typeof searchTerm !== "undefined") {
 		customersearched.value = true;
@@ -120,6 +129,8 @@ const getCustomers = async (searchTerm) => {
 };
 const getConsignees = async (searchTerm) => {
 	let result = null;
+	headers['Accept-Language'] = langLocale.value;
+
 	if(typeof searchTerm !== "undefined") {
 		recipientsearched.value = true;
 		result = await axios.get(`http://localhost:4004/consignment/ConsigneesOfGoods?$expand=country&$search=${searchTerm}`, {headers});
@@ -137,6 +148,8 @@ const getConsignees = async (searchTerm) => {
 };
 const getForwarders = async (searchTerm) => {
 	let result = null;
+	headers['Accept-Language'] = langLocale.value;
+
 	if(typeof searchTerm !== "undefined") {
 		forwardersearched.value = true;
 		result = await axios.get(`http://localhost:4004/consignment/Forwarders?$expand=country&$search=${searchTerm}`, {headers});
@@ -161,8 +174,10 @@ getForwarders();
 <template>
 	<div>
 		<header>
-			<div class="wrapper">
-				<HeaderPanel :msg="$t('header.orderManagement')" />
+			<div class="wrapper w-100">
+				<HeaderPanel 
+					:msg="$t('header.orderManagement')"
+					@lng-changed="setNewLocale"/>
 			</div>
 		</header>
 		<main>
@@ -174,13 +189,15 @@ getForwarders();
 					class="w-50 mr-15" 
 					@toggle-customers-modal="toggleCustomersModal" 
 					:orderTypes="orderTypes"
-					:selectedCustomer="selectedCustomer" />
+					:selectedCustomer="selectedCustomer"
+					:locale="langLocale" />
 				<RightPanel 
 					class="w-50 ml-15" 
 					@toggle-recipients-modal="toggleRecipientsModal"
 					@toggle-forwarders-modal="toggleForwardersModal"
 					:selectedRecipientOfGoods="selectedRecipientOfGoods"
-					:selectedForwarder="selectedForwarder" />
+					:selectedForwarder="selectedForwarder"
+					:locale="langLocale" />
 			</div>
 			<CustomModal :modalActive="customerModalActive" @close-modal="toggleCustomersModal">
 				<CustomersTable 

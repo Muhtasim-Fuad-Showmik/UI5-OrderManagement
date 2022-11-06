@@ -67,8 +67,31 @@ a,
   background-color: hsla(160, 100%, 37%, 1);
 }
 
+.d-flex {
+  display: flex;
+}
+
+.justify-content-sb {
+  justify-content: space-between;
+}
+
 h2 {
   margin-bottom: 20px;
+}
+
+.langSelector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 10%;
+  min-width: 110px;
+}
+
+.langSelector > select {
+  height: 24px;
+  width: 50px;
+  padding: 0 5px;
+  border-radius: 5px;
 }
 
 .searchCross {
@@ -94,4 +117,8 @@ h2 {
 .searchPanel {
   display: flex;
   flex-direction: row;
+}
+
+.w-100 {
+  min-width: 100%;
 }

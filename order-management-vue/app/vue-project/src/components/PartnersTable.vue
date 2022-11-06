@@ -72,20 +72,7 @@
             default: "Partners"
         },
         partners: {
-            type: Array,
-            default: [
-                {
-                    code: "0",
-					name: "Name",
-					province: "PV",
-					city: "City",
-					country: {
-                        name: "Country"
-                    },
-					address: "Address",
-					postalCode: "00000"
-                }
-            ]
+            type: Array
         },
         noData: {
             type: Boolean,

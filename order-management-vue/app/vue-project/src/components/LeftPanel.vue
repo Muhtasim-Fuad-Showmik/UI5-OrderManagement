@@ -1,19 +1,6 @@
-<script>
-export default {
-    name: 'LeftPanel',
-    props: ['selectedCustomer', 'noData', 'searching'],
-    data: function() {
-        return {
-            orderType: '',
-            paymentPolicy: ''
-        }
-    }
-}
-</script>
-
 <script setup>
     // Library imports
-    import { ref } from "vue";
+    import { ref, watch } from "vue";
     import axios from "axios";
 
     // For localized backend
@@ -22,6 +9,8 @@ export default {
     };
 
     // State references
+    const orderType = ref('');
+    const paymentPolicy = ref('');
     const orderTypes = ref([
         {
             code: "Em",
@@ -35,14 +24,34 @@ export default {
         }
     ]);
 
+    const props = defineProps({
+        selectedCustomer: {
+            type: Object
+        },
+        noData: {
+            type: Boolean
+        },
+        locale: {
+            type: String,
+            default: "it"
+        }
+    });
     defineEmits(["toggle-customers-modal"]);
+    watch(() => props.locale, async () => {
+        getOrderTypes();
+        getPaymentPolicies();
+    });
 
     const getOrderTypes = async () => {
+        headers['Accept-Language'] = props.locale;
+
         const result = await axios.get(`http://localhost:4004/order/OrderTypes`, {headers});
         orderTypes.value = result.data.value;
     };
 
     const getPaymentPolicies = async () => {
+        headers['Accept-Language'] = props.locale;
+
         const result = await axios.get(`http://localhost:4004/order/PaymentPolicies`, {headers});
         paymentPolicies.value = result.data.value;
     }
