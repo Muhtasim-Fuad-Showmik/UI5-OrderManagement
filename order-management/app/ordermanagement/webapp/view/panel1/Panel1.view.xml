@@ -16,5 +16,13 @@
                 <mvc:XMLView viewName="test.ordermanagement.ordermanagement.view.panel1.Panel1Right" />
             </l:content>
         </l:Grid>
+        <l:Grid
+            containerQuery="true"
+            hSpacing="2"
+            defaultSpan="XL6 L6 M12">
+            <l:content>
+                <mvc:XMLView viewName="test.ordermanagement.ordermanagement.view.panel1.Panel1Locale" />
+            </l:content>
+        </l:Grid>
     </l:VerticalLayout>
 </mvc:View>
